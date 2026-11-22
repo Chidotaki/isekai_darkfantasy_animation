@@ -1,13 +1,15 @@
 # Isekai — The Unblessed
 
-A local Remotion proof of concept: **40 seconds, 1920 × 1080, 30 fps**, composition **IsekaiDemo**. Original SVG artwork and synthesized stereo music; no paid API, downloaded visual assets, or cloud rendering.
+A local Remotion production foundation for an original Japanese-style 2D dark fantasy series, built around four working SVG cutout animation prototypes. Production defaults are **1920 × 1080 at 30 FPS**. Episodes will target roughly 8–12 minutes, adjusted to the approved adaptation. No paid API or cloud rendering is required.
+
+The approved light novel is the single source of story truth. Prototype plots and dialogue are technical demonstrations, not approved episode scripts. Chapter 1, “Chuyến dã ngoại”, is planned for Episode 001; its complete approved text is not supplied here. No Episode 001 content or unpublished manuscript has been added.
 
 ## Preview and render
 
 Requires Node.js 22+ and npm. From this folder:
 
 ```sh
-npm install
+npm ci
 npm run preview
 npm run render
 ```
@@ -72,3 +74,58 @@ Record against the scene boundaries above (0, 8, 15, 23, 32, 40 seconds). `narra
 All motion depends on the Remotion frame, with no CSS animation, wall-clock time or unseeded randomness. The scene groups are named in Studio. Rig geometry and procedural effects are intentionally edited in source rather than through visual path controls. This is a compact film prototype, not a timeline editor or full animation engine.
 
 The installed Remotion Agent Skills in `.agents/skills/` were reviewed for the rendering and character upgrades. No external skill scripts were executed.
+
+## Production architecture — Phase 1
+
+**Implemented:** centralized defaults; typed episode → scene → shot manifests; derived frame timelines; reusable Remotion sequencing with scene/shot audio cues; canonical character and asset registries; local asset preflight; production documentation. Existing prototype code, appearance, choreography, audio paths, durations and commands are preserved. No new dependencies or full MP4 exports are part of this phase.
+
+| Module | Responsibility |
+| --- | --- |
+| `src/production/config.ts` | Defaults, naming conventions and seconds/frame conversion |
+| `episodeTypes.ts`, `timeline.ts` | Typed manifests, derived duration, nested offsets and reference/timing validation |
+| `EpisodeComposition.tsx` | Reusable scene/shot sequences; local audio cues; module-scope episode definition |
+| `episodeRegistry.ts`, `EpisodeCompositions.tsx` | Opt-in production registrations; currently empty |
+| `characterRegistry.ts` | Canonical identities mapped to unchanged legacy art IDs |
+| `assetRegistry.ts` | Version/status/category and local file, logical component or planned asset references |
+| `src/episodes/` | Future approved episode modules and an isolated noncanonical timing fixture |
+
+To add an approved episode, create a manifest and explicit shot renderer table under `src/episodes/<episode-id>/`, export `defineEpisode(manifest, animations)`, then add it to `episodeRegistry`. The existing Root registers its component with duration derived from all shots. A renderer's `useCurrentFrame()` is shot-local; use its supplied offsets for scene/episode clocks. Camera, placement and animation metadata are consumed by the shot renderer, keeping existing rigs reusable. See the [implementation contract and workflow](docs/PRODUCTION_BIBLE.md) before authoring an episode.
+
+Future episode export uses an explicitly selected registered ID:
+
+```sh
+npx remotion render src/index.ts <episode-id> out/<episode-id>-v<version>.mp4
+```
+
+`npm run preview` still opens the normal Studio list. `npm run render` still targets **IsekaiDemo**. No fake Episode 001 is registered. The development fixture can be opened separately with `npx remotion studio scripts/production-fixture.tsx`; it contains only a four-second frame counter for checking two scenes and three shots.
+
+## Validation
+
+```sh
+npm ci
+npm run check
+node scripts/check-acting.cjs
+node scripts/check-combat.cjs
+node scripts/check-magic.cjs
+npm run check:production
+npm run check:assets
+npx remotion compositions src/index.ts --is-production=false
+```
+
+On Windows PowerShell, use `npm.cmd` / `npx.cmd` if the shell blocks their `.ps1` wrappers. The focused production check covers nested cut boundaries, derived totals, audio bounds, canonical aliases, asset references and original composition metadata. File preflight checks all registered file-backed assets under `public/`; planned assets do not need fake files. Neither check substitutes for visual, audio or story QC.
+
+For a few fixture frames without an MP4:
+
+```sh
+npx remotion render scripts/production-fixture.tsx DevelopmentTimingFixture out/production-timing --frames=29,30,89,90 --image-format=png --is-production=false
+```
+
+## Production documents and remaining work
+
+- [Production bible](docs/PRODUCTION_BIBLE.md): workflow, adding episodes, timing and integration.
+- [Visual bible](docs/VISUAL_BIBLE.md): proposed direction and visual approval boundaries.
+- [Continuity](docs/CONTINUITY.md): source fidelity, reset mechanics and reveal order.
+- [Character registry](docs/CHARACTER_REGISTRY.md): canonical IDs, legacy aliases and design approval.
+- [Audio standard](docs/AUDIO_STANDARD.md): future voice, cue, organization and QC requirements.
+
+Phase 1 provides the foundation; it does not produce an episode. Remaining production phases are **2: approved anime artwork/master sheets/hybrid puppets**, **3: narration, dialogue mixing and advanced lip-sync**, **4: Episode 001 vertical slice**, and **5: full Episode 001**. These production phase numbers are separate from the historical prototype phases in the older reports. Work on those phases requires the approved story/adaptation and assets; none is inferred here.

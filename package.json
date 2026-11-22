@@ -7,6 +7,8 @@
     "preview": "remotion studio src/index.ts",
     "render": "remotion render src/index.ts IsekaiDemo out/isekai-demo.mp4 --codec=h264 --crf=18 --concurrency=2",
     "check": "tsc --noEmit",
+    "check:production": "node scripts/check-production.cjs",
+    "check:assets": "node scripts/check-assets.cjs",
     "audio": "node scripts/make-audio.mjs"
   },
   "dependencies": {

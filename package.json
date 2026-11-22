@@ -1,0 +1,20 @@
+{
+  "name": "isekai-animation-poc",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "remotion studio src/index.ts",
+    "preview": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts IsekaiDemo out/isekai-demo.mp4 --codec=h264 --crf=18 --concurrency=2",
+    "check": "tsc --noEmit",
+    "audio": "node scripts/make-audio.mjs"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.545",
+    "@remotion/media": "4.0.545",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.545"
+  },
+  "devDependencies": {"@types/react": "19.2.2", "@types/react-dom": "19.2.2", "typescript": "5.9.3"}
+}

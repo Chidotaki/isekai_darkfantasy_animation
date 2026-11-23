@@ -1,6 +1,6 @@
 import type {CastId, CharacterProps} from '../components/Character';
 import type {Expression} from '../components/faceRig';
-import type {ApprovalStatus, AssetIdOf} from './assetRegistry';
+import type {ApprovalStatus, AssetIdOf, AssetPin} from './assetRegistry';
 
 export type CharacterEntry = {
   readonly displayName: string;
@@ -12,11 +12,15 @@ export type CharacterEntry = {
   readonly status: ApprovalStatus; // Story identity approval, separate from artwork status.
   readonly costumes?: readonly NonNullable<CharacterProps['costume']>[];
   readonly expressions?: readonly Expression[];
+  readonly layeredAppearance?: AssetPin<AssetIdOf<'character-art'>>;
+  readonly layeredRig?: AssetPin<AssetIdOf<'rig'>>;
 };
 
 const humanAsset = {
   rig: 'rig.human-cutout', artwork: 'art.student-cast', assetVersion: '1.0.0',
   costumes: ['student'],
+  layeredAppearance: {id:'art.layered-students',version:'1.0.0'},
+  layeredRig: {id:'rig.layered-human',version:'1.0.0'},
 } as const;
 
 export const characterRegistry = {

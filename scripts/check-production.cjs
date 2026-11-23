@@ -71,7 +71,7 @@ for (const file of ['../outside.wav', 'C:/outside.wav', 'https://example.com/aud
 assert.deepEqual(checkFileAssets({planned:{source:{kind:'planned',note:'Awaiting approved asset'}}}), {errors:[],planned:['planned']});
 
 // Production registration stays opt-in. Future approved entries must pass these checks too.
-const ids = new Set(['IsekaiDemo','CombatDemo','MagicCombatDemo','EmotionalDemo']);
+const ids = new Set(['IsekaiDemo','CombatDemo','MagicCombatDemo','EmotionalDemo','CharacterVisualTest']);
 for (const definition of episodeRegistry) {
   assert.equal(definition.manifest.kind, 'production');
   assert(!ids.has(definition.manifest.id)); ids.add(definition.manifest.id);
@@ -92,7 +92,7 @@ const visit = node => {
   ts.forEachChild(node, visit);
 };
 visit(root);
-for (const [id, frames] of Object.entries({IsekaiDemo:1200,CombatDemo:450,MagicCombatDemo:540,EmotionalDemo:900})) {
+for (const [id, frames] of Object.entries({IsekaiDemo:1200,CombatDemo:450,MagicCombatDemo:540,EmotionalDemo:900,CharacterVisualTest:720})) {
   assert.deepEqual(found[id], [frames, productionConfig.width, productionConfig.height, productionConfig.fps]);
 }
 assert.match(require('../package.json').scripts.render, /src\/index.ts IsekaiDemo out\/isekai-demo.mp4/);

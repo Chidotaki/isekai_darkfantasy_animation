@@ -15,6 +15,11 @@ export type AssetEntry = {
 
 /** Keys are unique asset IDs. Availability does not imply canonical design approval. */
 export const assetRegistry = {
+  'art.layered-students': {category: 'character-art', version: '1.0.0', status: 'provisional', source: {kind: 'component', reference: 'src/visual/provisionalArtwork.ts#provisionalAppearances'}},
+  'rig.layered-human': {category: 'rig', version: '1.0.0', status: 'provisional', source: {kind: 'component', reference: 'src/visual/rig.ts#provisionalRig'}},
+  'art.provisional-jacket-svg': {category: 'character-art', version: '1.0.0', status: 'provisional', source: {kind: 'file', path: 'assets/characters/provisional-v1/yuu-jacket.svg'}},
+  'art.provisional-hair-webp': {category: 'character-art', version: '1.0.0', status: 'provisional', source: {kind: 'file', path: 'assets/characters/provisional-v1/yuu-hair.webp'}},
+  'art.provisional-eye-png': {category: 'character-art', version: '1.0.0', status: 'provisional', source: {kind: 'file', path: 'assets/characters/provisional-v1/eye-white.png'}},
   'art.student-cast': {category: 'character-art', version: '1.0.0', status: 'provisional', source: {kind: 'component', reference: 'src/components/Character.tsx#cast'}},
   'rig.human-cutout': {category: 'rig', version: '1.0.0', status: 'provisional', source: {kind: 'component', reference: 'src/components/Character.tsx#Character'}},
   'rig.goblin-cutout': {category: 'rig', version: '1.0.0', status: 'provisional', source: {kind: 'component', reference: 'src/combat/Goblin.tsx#Goblin'}},
@@ -35,6 +40,11 @@ export type AssetId = keyof typeof assetRegistry;
 export type AssetIdOf<C extends AssetCategory> = {
   [K in AssetId]: (typeof assetRegistry)[K]['category'] extends C ? K : never
 }[AssetId];
+
+export type AssetPin<Id extends AssetId = AssetId> = {readonly id:Id; readonly version:string};
+export const assertAssetPin = (pin:{readonly id:AssetId;readonly version:string}):void => {
+  if(getAsset(pin.id).version!==pin.version) throw new Error(`Asset version mismatch: ${pin.id}@${pin.version}`);
+};
 
 export const getAsset = (id: AssetId): AssetEntry => {
   if (!Object.hasOwn(assetRegistry, id)) throw new Error(`Unknown asset: ${id}`);

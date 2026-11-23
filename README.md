@@ -128,4 +128,20 @@ npx remotion render scripts/production-fixture.tsx DevelopmentTimingFixture out/
 - [Character registry](docs/CHARACTER_REGISTRY.md): canonical IDs, legacy aliases and design approval.
 - [Audio standard](docs/AUDIO_STANDARD.md): future voice, cue, organization and QC requirements.
 
-Phase 1 provides the foundation; it does not produce an episode. Remaining production phases are **2: approved anime artwork/master sheets/hybrid puppets**, **3: narration, dialogue mixing and advanced lip-sync**, **4: Episode 001 vertical slice**, and **5: full Episode 001**. These production phase numbers are separate from the historical prototype phases in the older reports. Work on those phases requires the approved story/adaptation and assets; none is inferred here.
+Phase 1 provides the foundation; it does not produce an episode. Phase 2 adds the hybrid puppet renderer described below; approved anime artwork/master sheets remain outstanding. Later work is **3: narration, dialogue mixing and advanced lip-sync**, **4: Episode 001 vertical slice**, and **5: full Episode 001**. These production phase numbers are separate from the historical prototype phases in the older reports. Work on those phases requires the approved story/adaptation and assets; none is inferred here.
+
+## Phase 2: hybrid character visual test
+
+`CharacterVisualTest` is a **24-second, 1920×1080, 30 FPS noncanonical technical test**. It reuses original provisional character art, with a PNG eye layer, WebP hair layer and SVG jacket layer alongside procedural vector layers. No approved final character designs or extra dependencies were added. The four existing demos and their durations remain unchanged.
+
+```sh
+npm run preview
+node scripts/check-visual.cjs
+npx remotion render src/index.ts CharacterVisualTest out/character-visual --frames=45,180,210,240,314,330,359,381,403,425,447,525,570,660,705 --image-format=png --scale=0.5 --concurrency=2 --is-production=false
+```
+
+Select `CharacterVisualTest` in Studio. Its sampled poses/layer maps are code-driven; title/status copy is editable. No full MP4 is needed for this phase. `npm run render` retains the original Isekai MP4 pipeline.
+
+`src/visual/CharacterRenderer.tsx` resolves canonical IDs and artwork version pins; `LayeredCharacter` paints configurable parts, while `samplePerformance` supplies motion independently. `withExistingPose` preserves authored combat grip geometry, and `mode="procedural"` uses the existing character renderer. Future shot placements can select `appearance: {id, version}` and `costume`; episode `assetPins` reject declared version mismatches.
+
+See [Artwork pipeline](docs/ARTWORK_PIPELINE.md) for import/export, provenance and approval requirements, [Puppet rig standard](docs/PUPPET_RIG_STANDARD.md) for coordinates, animation and limitations, and [Phase 2 review](docs/PHASE_2_VISUAL_REPORT.md) for validation evidence. Yuu, Kairyū and Shiori are technically animatable with provisional art; **none is approved for final episode production**.

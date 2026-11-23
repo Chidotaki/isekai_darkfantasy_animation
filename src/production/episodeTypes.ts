@@ -1,7 +1,7 @@
 import type {ComponentType} from 'react';
 import type {Framing, Shot as CameraPreset} from '../acting/camera';
-import type {Expression} from '../components/faceRig';
-import type {AssetId, AssetIdOf, AudioCategory} from './assetRegistry';
+import type {VisualExpression} from '../visual/types';
+import type {AssetId, AssetIdOf, AssetPin, AudioCategory} from './assetRegistry';
 import type {CharacterId} from './characterRegistry';
 
 export type AudioCue = {
@@ -21,8 +21,10 @@ export type CharacterPlacement = {
   readonly y: number;
   readonly scale?: number;
   readonly facing?: 1 | -1;
-  readonly expression?: Expression;
+  readonly expression?: VisualExpression;
   readonly motion?: AssetIdOf<'animation'>;
+  readonly appearance?: AssetPin<AssetIdOf<'character-art'>>;
+  readonly costume?: string;
 };
 
 export type ShotManifest = {
@@ -58,6 +60,8 @@ export type EpisodeManifest = {
   readonly width: number;
   readonly height: number;
   readonly scenes: readonly SceneManifest[];
+  /** Optional locks for referenced art, rigs, motion or audio; mismatches fail preflight. */
+  readonly assetPins?: readonly AssetPin[];
 };
 
 export type ScheduledShot = {

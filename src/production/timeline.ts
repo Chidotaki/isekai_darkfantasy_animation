@@ -1,4 +1,4 @@
-import {audioAssetPath, getAsset} from './assetRegistry';
+import {assertAssetPin, audioAssetPath, getAsset} from './assetRegistry';
 import {characterAssetId} from './characterRegistry';
 import {productionConfig} from './config';
 import type {AudioCue, EpisodeManifest, EpisodeTimeline, ScheduledScene} from './episodeTypes';
@@ -41,6 +41,7 @@ export const buildTimeline = (episode: EpisodeManifest, animationIds?: readonly 
   frameCount(episode.width, 'Width');
   frameCount(episode.height, 'Height');
   if (!episode.scenes.length) throw new Error('An episode needs at least one scene.');
+  episode.assetPins?.forEach(assertAssetPin);
   const sceneIds = new Set<string>();
   let episodeFrom = 0;
   const scenes: ScheduledScene[] = episode.scenes.map(scene => {
@@ -67,6 +68,10 @@ export const buildTimeline = (episode: EpisodeManifest, animationIds?: readonly 
           throw new Error(`Invalid placement: ${placement.character}`);
         }
         if (placement.motion && getAsset(placement.motion).category !== 'animation') throw new Error(`Invalid motion: ${placement.motion}`);
+        if (placement.appearance) {
+          assertAssetPin(placement.appearance);
+          if(getAsset(placement.appearance.id).category!=='character-art') throw new Error('Appearance must reference character artwork.');
+        }
       }
       shot.assets?.forEach(getAsset);
       validateAudio(shot.audio, shot.durationInFrames);

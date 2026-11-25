@@ -15,10 +15,13 @@ export const prepareAppearance = (appearance:CharacterAppearance):CharacterAppea
   if(!points.flat().every(Number.isFinite)||!Number.isFinite(rig.handOffset)||rig.handOffset<0)throw Error('Invalid rig anchors.');
   for(const layer of appearance.layers){
     if(!/^[a-zA-Z0-9_-]+$/.test(layer.id)||ids.has(layer.id))throw Error(`Invalid or duplicate layer: ${layer.id}`);ids.add(layer.id);
-    if(![...layer.offset,...layer.size,...(layer.anchor??[]),...(layer.scale??[]),layer.rotation??0,layer.opacity??1,layer.order].every(Number.isFinite)||layer.size.some(v=>v<=0))throw Error(`Invalid layer geometry: ${layer.id}`);
+    if(![...layer.offset,...layer.size,...(layer.anchor??[]),...(layer.scale??[]),...(layer.bind??[]),layer.rotation??0,layer.opacity??1,layer.order].every(Number.isFinite)||layer.size.some(v=>v<=0))throw Error(`Invalid layer geometry: ${layer.id}`);
     for(const source of layerSources(layer)){
       if(source.kind==='file'){
         if(!isPublicAssetPath(source.path)||!source.path.toLowerCase().endsWith(`.${source.format}`))throw Error(`Invalid layer file: ${source.path}`);
+        if(source.region){const {rect,sheetSize,mask}=source.region;
+          if(![...rect,...sheetSize].every(Number.isFinite)||rect[0]<0||rect[1]<0||rect[2]<=0||rect[3]<=0||rect[0]+rect[2]>sheetSize[0]||rect[1]+rect[3]>sheetSize[1]||!mask.trim())throw Error(`Invalid sheet region: ${layer.id}`);
+        }
       }else if(!source.viewBox.every(Number.isFinite)||source.viewBox[2]<=0||source.viewBox[3]<=0)throw Error(`Invalid SVG viewBox: ${layer.id}`);
     }
   }

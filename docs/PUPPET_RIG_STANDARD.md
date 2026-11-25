@@ -8,6 +8,7 @@ The Phase 2 system is a small humanoid cutout rig. It reuses the existing determ
 | --- | --- |
 | `src/visual/types.ts` | Layer sources, appearances, rig measurements and sampled performance types. |
 | `provisionalArtwork.ts` | Static original art and source swaps, prepared once; no frame sampling. |
+| `starterSheets.ts`, `starterMaskRuns.ts` | Approved starter source regions, masks, rest bindings, expression maps and restrained performance sampler. |
 | `assets.ts` | Local-path/geometry preflight, drawing order and source selection. |
 | `performance.ts` | Frame-based motion, smooth face mixing, talk shape crossfades and authored-pose adapter. |
 | `rig.ts` | Bone matrices, configurable proportions, forward arms and inverse legs. |
@@ -17,7 +18,7 @@ The Phase 2 system is a small humanoid cutout rig. It reuses the existing determ
 
 ## Coordinates and anchors
 
-All art is authored facing right by convention; `facing=-1` mirrors the entire puppet. X grows right; Y grows down. `x/y/scale` place the character's feet origin in the shot. SVG is the host; no canvas drawing or frame-time filesystem access is required.
+`facing=-1` mirrors the entire puppet; it does not generate an alternate view. Starter art is frontal. X grows right; Y grows down. `x/y/scale` place the character's feet origin in the shot. SVG is the host; no canvas drawing or frame-time filesystem access is required.
 
 The provisional rig has torso pivot `(0,-88)`, neck `(0,-162)`, shoulders `(-29,-145)/(29,-145)`, hips `(-16,-85)/(16,-85)`, and ankle targets `(-23,-7)/(23,-7)`. Upper arms are 34 units, forearms 30, hand offset 6, thighs/shins 40. These are provisional measurements, not canonical proportions.
 
@@ -30,11 +31,13 @@ The provisional rig has torso pivot `(0,-88)`, neck `(0,-162)`, shoulders `(-29,
 
 New proportions must provide matching artwork and rig measurements together. Length changes do not stretch existing painted sleeves automatically. Multiple layers can share a bone; unused conceptual layers may be omitted. New bone topologies require a small explicit rig extension, not an arbitrary parent graph.
 
+Starter parts share source-sheet coordinates translated to their character's feet origin. Each layer stores `bind = inverse(restBoneMatrix)`. The renderer applies `currentBoneMatrix × bind`, so the neutral drawing retains its original layout while articulated parts follow the rig. Region clipping combines the manual part outline and cached paper-removal contour. These rigs are roughly 630–680 source units tall and have individual proportions; do not apply the old rig's scale or combat contact coordinates unchanged.
+
 ## Performance workflow
 
 `samplePerformance(frame,{fps,seed,pose,expression,...})` samples idle, talk, walk or sit. It includes breathing, seeded irregular blinks, restrained head/torso accents, delayed secondary motion and a cubic-eased gait from the original helpers. `walkTime` can be scene-relative while breathing and blinks retain continuous shot time. Everything is reproducible when seeking out of order.
 
-Author transitions by easing numeric body channels with `ease`/`mix`; do not abruptly switch a planted stand to the final seated pelvis. The test uses 30-frame sit/stand transitions, anticipation in head/arm timing and a gradual walking onset. There is no automatic pose-transition planner.
+Author transitions by easing numeric body channels with `ease`/`mix`; do not abruptly switch a planted stand to a seated pelvis. `sampleStarterPerformance` reuses the existing sampler with reduced breathing/tilt/secondary motion, a small arm gesture and eased posture shifts. The current test uses these supported motions; extreme sit/walk poses need additional costume separations. The older samplers remain available. There is no automatic pose-transition planner.
 
 The gait has a 1.1-second cycle and 0.66-second stance, moving the planted foot 18 units backward. For forward travel, advance the character origin by `18/.66` local units/second times character scale and facing. Match root acceleration to walk strength at starts/stops. A stationary walk sampler alone is an in-place gait; arbitrary scene travel will slide.
 
@@ -44,14 +47,14 @@ The gait has a 1.1-second cycle and 0.66-second stance, moving the planted foot 
 
 ## Face and style
 
-All existing 16 presets and quiet/asleep aliases remain available. The new renderer adds `fear` by blending existing worried/surprised channels. Eyes, brows, pupils, mouth and hair are independent. Expressions and mouth sources can use any supported image format. Source replacements crossfade; continuous eyelid/gaze/brow/head channels transform those sources. Seven existing mouth IDs remain accessible. Talk activity fades into/out of the expression mouth rather than popping at a threshold. This is stylized talk cycling, not phoneme alignment.
+All existing presets and aliases remain available. The provisional artwork has independent eyes, brows, pupils, mouth and hair, including the existing fear blend. The starter appearances instead map the names to four supplied painted portraits per character. Their eyes/brows/hair move with the painted head; independent gaze and brow movement are not separated. Closed lids and seven mouth IDs use minimal character-colored vector overlays. Yuu also has a restrained smile overlay. Crossfades preserve the existing source-selection interface; these are limited talk cycles, not phoneme alignment. See the integration report for mappings and fallback emotions.
 
 `VisualStyle` controls shadow/highlight strength, opacity and optional brightness/saturation. Outlines and base colors belong to the artwork/tokens. Use shot-selected light planes, a ground shadow, value contrast and framing for depth. No default bloom, blur, particles or camera shake is applied.
 
 ## Verification and limits
 
-`CharacterVisualTest` is a 720-frame/24-second noncanonical test at 1920×1080, 30 FPS. It shows the three priority characters, breathing/tilt/blinks, eight face states, talking, an attached card, a close-up, sitting/standing and walking. Its title/status text is Studio-editable; sampled rig transforms, layer maps and computed status labels are code-driven rather than individual timeline controls.
+`CharacterVisualTest` is a 720-frame/24-second noncanonical test at 1920×1080, 30 FPS. It shows all three approved starter characters, breathing/tilt/blinks, six expression requests per character, talking, arm gestures, close-ups and a posture shift. Its title/status text is Studio-editable; sampled rig transforms, layer maps and computed status labels are code-driven rather than individual timeline controls.
 
-Run `node scripts/check-visual.cjs` for 2880 deterministic poses, segment continuity, unequal-bone reach, authored grip parity, planted stance, formats, source swaps and manifest pins. Inspect actual rendered frames as well; numeric checks cannot approve art quality.
+Run `node scripts/check-visual.cjs` for the existing 2880 deterministic poses/contact/format checks plus 2160 starter poses, canonical defaults, source hashes, masked parts, facial mappings and version isolation. Inspect actual rendered frames as well; numeric checks cannot approve art quality.
 
-The current source art remains simplified and front-facing. Extreme turns, perspective shortening, elbow folds, hand articulation, automatic occlusion swaps, squash/deformation, and production facial detail require new approved assets or targeted authored poses. No final artwork, lip-sync, audio production, full episode or automatic asset manager is included.
+The starter designs are approved for current Chapter 1 implementation. The derived rig bindings and overlays remain technical interpretations; they do not establish complete final production masters. Extreme turns, perspective shortening, elbow folds, hand articulation, automatic occlusion swaps and squash/deformation need further separations or authored art. Painted hair/collar joins and raster softness can show in large close-ups; no hidden costume surfaces are synthesized. No audio production, full episode or asset manager is included.

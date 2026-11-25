@@ -9,6 +9,11 @@ export const multiply = (a: Matrix, b: Matrix): Matrix => [
   a[0]*b[4]+a[2]*b[5]+a[4], a[1]*b[4]+a[3]*b[5]+a[5],
 ];
 export const translate = (x: number, y: number): Matrix => [1,0,0,1,x,y];
+export const inverse = (m:Matrix):Matrix => {
+  const d=m[0]*m[3]-m[1]*m[2];
+  if(Math.abs(d)<1e-9)throw Error('Cannot bind a singular rig matrix');
+  return [m[3]/d,-m[1]/d,-m[2]/d,m[0]/d,(m[2]*m[5]-m[3]*m[4])/d,(m[1]*m[4]-m[0]*m[5])/d];
+};
 export const scale = (x: number, y = x): Matrix => [x,0,0,y,0,0];
 export const rotation = (angle: number): Matrix => {
   const r=angle*Math.PI/180,c=Math.cos(r),s=Math.sin(r); return [c,s,-s,c,0,0];

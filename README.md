@@ -128,20 +128,20 @@ npx remotion render scripts/production-fixture.tsx DevelopmentTimingFixture out/
 - [Character registry](docs/CHARACTER_REGISTRY.md): canonical IDs, legacy aliases and design approval.
 - [Audio standard](docs/AUDIO_STANDARD.md): future voice, cue, organization and QC requirements.
 
-Phase 1 provides the foundation; it does not produce an episode. Phase 2 adds the hybrid puppet renderer described below; approved anime artwork/master sheets remain outstanding. Later work is **3: narration, dialogue mixing and advanced lip-sync**, **4: Episode 001 vertical slice**, and **5: full Episode 001**. These production phase numbers are separate from the historical prototype phases in the older reports. Work on those phases requires the approved story/adaptation and assets; none is inferred here.
+Phase 1 provides the foundation; it does not produce an episode. Phase 2 adds the hybrid puppet renderer described below. The three supplied Chapter 1 starter sheets are now approved for current implementation; expanded production master sheets remain future work. Later work is **3: narration, dialogue mixing and advanced lip-sync**, **4: Episode 001 vertical slice**, and **5: full Episode 001**. These production phase numbers are separate from the historical prototype phases in the older reports. Work on those phases requires the approved story/adaptation and assets; none is inferred here.
 
 ## Phase 2: hybrid character visual test
 
-`CharacterVisualTest` is a **24-second, 1920×1080, 30 FPS noncanonical technical test**. It reuses original provisional character art, with a PNG eye layer, WebP hair layer and SVG jacket layer alongside procedural vector layers. No approved final character designs or extra dependencies were added. The four existing demos and their durations remain unchanged.
+`CharacterVisualTest` is a **24-second, 1920×1080, 30 FPS noncanonical technical test**. Its three active characters now use the user-approved Chapter 1 starter sheets: Yuu's dark hooded outfit, Kairyū's silver armor/blue cape, and Shiori's embroidered blue robe. The renderer assembles individually masked source regions into bone-bound body parts, painted expression swaps and minimal blink/talk overlays. Source PNGs are preserved byte-for-byte. No dependencies were added. The four historical demos keep their existing artwork and durations.
 
 ```sh
 npm run preview
 node scripts/check-visual.cjs
-npx remotion render src/index.ts CharacterVisualTest out/character-visual --frames=45,180,210,240,314,330,359,381,403,425,447,525,570,660,705 --image-format=png --scale=0.5 --concurrency=2 --is-production=false
+npx remotion render src/index.ts CharacterVisualTest out/starter-full --frames=30,162,225,277,342,405,457,522,585,637,700 --image-format=png --concurrency=2 --is-production=false
 ```
 
 Select `CharacterVisualTest` in Studio. Its sampled poses/layer maps are code-driven; title/status copy is editable. No full MP4 is needed for this phase. `npm run render` retains the original Isekai MP4 pipeline.
 
-`src/visual/CharacterRenderer.tsx` resolves canonical IDs and artwork version pins; `LayeredCharacter` paints configurable parts, while `samplePerformance` supplies motion independently. `withExistingPose` preserves authored combat grip geometry, and `mode="procedural"` uses the existing character renderer. Future shot placements can select `appearance: {id, version}` and `costume`; episode `assetPins` reject declared version mismatches.
+`src/visual/CharacterRenderer.tsx` resolves canonical IDs to the new approved starter appearances by default. `starterSheets.ts` defines their regions, rig bindings, expression maps and restrained `sampleStarterPerformance`; `LayeredCharacter` paints the parts. Legacy aliases remain stable. Explicit provisional pins and `mode="procedural"` retain compatibility. Future shot placements can select `appearance: {id, version}` and `costume`; episode `assetPins` reject declared version mismatches.
 
-See [Artwork pipeline](docs/ARTWORK_PIPELINE.md) for import/export, provenance and approval requirements, [Puppet rig standard](docs/PUPPET_RIG_STANDARD.md) for coordinates, animation and limitations, and [Phase 2 review](docs/PHASE_2_VISUAL_REPORT.md) for validation evidence. Yuu, Kairyū and Shiori are technically animatable with provisional art; **none is approved for final episode production**.
+See [the starter integration report](docs/CHAPTER_1_STARTER_INTEGRATION.md) for files, approval scope, expression mappings, validation and rendered frame paths; [Artwork pipeline](docs/ARTWORK_PIPELINE.md) and [Puppet rig standard](docs/PUPPET_RIG_STANDARD.md) describe the contracts. These are approved starter references for current Chapter 1 work, not complete production masters for all angles, actions or later arcs. The puppets currently support restrained frontal motion; independent gaze/brows, extreme poses and detailed lip-sync need further separations.

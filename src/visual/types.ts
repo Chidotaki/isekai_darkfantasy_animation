@@ -14,7 +14,9 @@ export type Shape = {
 };
 export type LayerSource =
   | {readonly kind: 'vector'; readonly shapes: readonly Shape[]; readonly viewBox: readonly [number, number, number, number]}
-  | {readonly kind: 'file'; readonly path: string; readonly format: 'png' | 'webp' | 'svg'};
+  | {readonly kind: 'file'; readonly path: string; readonly format: 'png' | 'webp' | 'svg';
+      /** Non-destructive region of an unchanged approved sheet, in original pixel coordinates. */
+      readonly region?: {readonly rect:readonly [number,number,number,number];readonly mask:string;readonly silhouette?:string;readonly sheetSize:Point}};
 export type CharacterLayer = {
   readonly id: string;
   readonly bone: Bone;
@@ -24,12 +26,15 @@ export type CharacterLayer = {
   readonly offset: Point;
   readonly size: Point;
   readonly anchor?: Point;
+  /** Inverse rest-pose matrix for artwork authored in a common sheet coordinate frame. */
+  readonly bind?: readonly [number,number,number,number,number,number];
   readonly rotation?: number;
   readonly scale?: Point;
   readonly visible?: boolean;
   readonly opacity?: number;
   readonly role?: 'shadow' | 'highlight';
-  readonly motion?: 'pupil';
+  readonly motion?: 'pupil' | 'blink' | 'speech';
+  readonly expressionOpacity?: Partial<Record<VisualExpression,number>>;
   readonly clip?: {readonly rx: number; readonly ry: number};
   readonly expressions?: Partial<Record<VisualExpression, LayerSource>>;
   readonly mouths?: Partial<Record<MouthShape, LayerSource>>;

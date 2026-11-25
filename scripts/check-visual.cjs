@@ -64,4 +64,28 @@ const pinned=structuredClone(developmentManifest);
 pinned.assetPins=[{id:'art.layered-students',version:'1.0.0'},{id:'rig.layered-human',version:'1.0.0'}];
 assert.equal(buildTimeline(pinned).durationInFrames,120);
 pinned.assetPins[0].version='2.0.0';assert.throws(()=>buildTimeline(pinned),/version mismatch/);
+// The three canonical defaults must use approved source pixels, never provisional parts.
+const {resolveAppearance}=require('../src/visual/CharacterRenderer.tsx');
+const {sampleStarterPerformance,starterAppearances}=require('../src/visual/starterSheets.ts');
+const {characterRegistry}=require('../src/production/characterRegistry.ts');
+const {createHash}=require('node:crypto');
+for(const id of ['asakura-yuu','tachibana-kairyu','minase-shiori']){
+  const appearance=resolveAppearance(id),entry=characterRegistry[id],reference=assetRegistry[entry.starterReference.id];
+  assert.equal(appearance,starterAppearances[id]);assert.equal(appearance.status,'approved');
+  assert.equal(reference.status,'approved');assert.deepEqual(appearance.costumes,['chapter-01']);
+  assert.equal(createHash('sha256').update(fs.readFileSync(`public/${reference.source.path}`)).digest('hex'),reference.metadata.sha256);
+  assert(appearance.layers.length>15);assert(appearance.layers.some(l=>l.bone==='handL'));
+  for(const layer of appearance.layers)for(const source of layerSources(layer))if(source.kind==='file'){
+    assert.equal(source.path,reference.source.path);assert(source.region?.silhouette.length>0);assert(layer.bind);
+  }
+  for(const expression of ['neutral','determined','exhausted','surprised','worried','sad','happy'])assert(appearance.layers.find(l=>l.id==='sheet-head-expressions').expressions[expression]);
+  for(let frame=0;frame<720;frame++){
+    const performance=sampleStarterPerformance(id,frame,{gesture:Math.sin(frame/90),posture:.5,talk:true});
+    assert.deepEqual(performance,sampleStarterPerformance(id,frame,{gesture:Math.sin(frame/90),posture:.5,talk:true}));
+    for(const matrix of Object.values(solveRig(appearance.rig,performance)))assert(matrix.every(Number.isFinite));
+  }
+  assert.throws(()=>resolveAppearance(id,{id:entry.layeredAppearance.id,version:'missing'}),/version mismatch/);
+}
+assert.throws(()=>resolveAppearance('asakura-yuu',{id:'art.starter-shiori',version:'1.0.0'}),/No layered appearance loader/);
+console.log('Passed: three approved starter defaults, unchanged source hashes, separate masked parts, facial mappings and 2160 deterministic starter poses.');
 console.log('Passed: 2880 deterministic hybrid poses, connected joints, authored grip parity, unequal proportions, planted stance, PNG/WebP/SVG files, facial swaps, visibility/costumes and version locks.');

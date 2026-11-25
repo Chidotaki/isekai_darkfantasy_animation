@@ -1,5 +1,7 @@
 # Phase 2 visual system review
 
+Historical Phase 2 baseline report. The subsequent [Chapter 1 starter integration](CHAPTER_1_STARTER_INTEGRATION.md) replaces the three canonical defaults and the test artwork with user-approved starter sheets. References below to missing approvals, the old test choreography and provisional defaults describe the earlier PR, not the current state.
+
 Status: technically implemented and visually inspected with **provisional artwork**. Final production artwork is not approved. Phase 1 PR #1 was merged; this work branches from latest `main` (`57553c9`) on `feat/hybrid-anime-characters`. The Phase 2 PR targets `main` and must not be automatically merged.
 
 ## Implemented

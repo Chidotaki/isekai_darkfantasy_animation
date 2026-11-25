@@ -15,6 +15,15 @@ export type AssetEntry = {
 
 /** Keys are unique asset IDs. Availability does not imply canonical design approval. */
 export const assetRegistry = {
+  'sheet.asakura-yuu': {category:'character-art',version:'1.0.0',status:'approved',source:{kind:'file',path:'assets/characters/chapter-01-starter-v1/asakura-yuu.png'},metadata:{role:'source-sheet',approvalScope:'Chapter 1 starter',sha256:'156d93ed3d4ebd97f9bf6f8ccb505ddf7aeda13ca4ee5d1e8b77e57611b4664b'}},
+  'sheet.tachibana-kairyu': {category:'character-art',version:'1.0.0',status:'approved',source:{kind:'file',path:'assets/characters/chapter-01-starter-v1/tachibana-kairyu.png'},metadata:{role:'source-sheet',approvalScope:'Chapter 1 starter',sha256:'51e129edca9c05be81a5258a41de5f013300f9b60ecd581b8651a8d148535094'}},
+  'sheet.minase-shiori': {category:'character-art',version:'1.0.0',status:'approved',source:{kind:'file',path:'assets/characters/chapter-01-starter-v1/minase-shiori.png'},metadata:{role:'source-sheet',approvalScope:'Chapter 1 starter',sha256:'a031bb4be9f6e6b11549ab2378cf24caa29a13e0a1f1051a4bcf9a82e18bc115'}},
+  'art.starter-yuu': {category:'character-art',version:'1.0.0',status:'approved',source:{kind:'component',reference:'src/visual/starterSheets.ts#starterAppearances'},metadata:{character:'asakura-yuu',reference:'sheet.asakura-yuu',approvalScope:'Starter-sheet technical interpretation'}},
+  'art.starter-kairyu': {category:'character-art',version:'1.0.0',status:'approved',source:{kind:'component',reference:'src/visual/starterSheets.ts#starterAppearances'},metadata:{character:'tachibana-kairyu',reference:'sheet.tachibana-kairyu',approvalScope:'Starter-sheet technical interpretation'}},
+  'art.starter-shiori': {category:'character-art',version:'1.0.0',status:'approved',source:{kind:'component',reference:'src/visual/starterSheets.ts#starterAppearances'},metadata:{character:'minase-shiori',reference:'sheet.minase-shiori',approvalScope:'Starter-sheet technical interpretation'}},
+  'rig.starter-yuu': {category:'rig',version:'1.0.0',status:'provisional',source:{kind:'component',reference:'src/visual/starterSheets.ts#starterAppearances'},metadata:{character:'asakura-yuu'}},
+  'rig.starter-kairyu': {category:'rig',version:'1.0.0',status:'provisional',source:{kind:'component',reference:'src/visual/starterSheets.ts#starterAppearances'},metadata:{character:'tachibana-kairyu'}},
+  'rig.starter-shiori': {category:'rig',version:'1.0.0',status:'provisional',source:{kind:'component',reference:'src/visual/starterSheets.ts#starterAppearances'},metadata:{character:'minase-shiori'}},
   'art.layered-students': {category: 'character-art', version: '1.0.0', status: 'provisional', source: {kind: 'component', reference: 'src/visual/provisionalArtwork.ts#provisionalAppearances'}},
   'rig.layered-human': {category: 'rig', version: '1.0.0', status: 'provisional', source: {kind: 'component', reference: 'src/visual/rig.ts#provisionalRig'}},
   'art.provisional-jacket-svg': {category: 'character-art', version: '1.0.0', status: 'provisional', source: {kind: 'file', path: 'assets/characters/provisional-v1/yuu-jacket.svg'}},

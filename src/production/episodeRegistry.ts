@@ -1,4 +1,5 @@
 import type {EpisodeDefinition} from './EpisodeComposition';
+import {episode001S001} from '../episodes/episode-001';
 
-/** Deliberately empty until an approved adaptation is available. No invented Episode 001. */
-export const episodeRegistry: readonly EpisodeDefinition[] = [];
+/** Registered previewable production episodes/scenes. */
+export const episodeRegistry: readonly EpisodeDefinition[] = [episode001S001];

@@ -1,0 +1,340 @@
+{
+  "character_id": "minase-shiori",
+  "character_name": "Minase Shiori",
+  "version": "facial-v1",
+  "source_atlas": "minase_shiori_facial_atlas_5x4_transparent.png",
+  "atlas_layout": {
+    "columns": 5,
+    "rows": 4,
+    "width": 1672,
+    "height": 941
+  },
+  "notes": [
+    "Auto-cropped from a 5x4 transparent facial atlas.",
+    "Sprite names are inferred from layout and should be visually verified during integration.",
+    "Assets may require anchor calibration inside Remotion.",
+    "assembled_preview_* files are reference previews and should not be used as swappable facial layers."
+  ],
+  "sprites": [
+    {
+      "name": "back_hair",
+      "file": "back_hair.png",
+      "row": 1,
+      "column": 1,
+      "box": {
+        "left": 0,
+        "top": 0,
+        "right": 334,
+        "bottom": 235
+      },
+      "size": {
+        "width": 334,
+        "height": 235
+      }
+    },
+    {
+      "name": "base_head_neck",
+      "file": "base_head_neck.png",
+      "row": 1,
+      "column": 2,
+      "box": {
+        "left": 334,
+        "top": 0,
+        "right": 669,
+        "bottom": 235
+      },
+      "size": {
+        "width": 335,
+        "height": 235
+      }
+    },
+    {
+      "name": "front_hair",
+      "file": "front_hair.png",
+      "row": 1,
+      "column": 3,
+      "box": {
+        "left": 669,
+        "top": 0,
+        "right": 1003,
+        "bottom": 235
+      },
+      "size": {
+        "width": 334,
+        "height": 235
+      }
+    },
+    {
+      "name": "assembled_preview_neutral",
+      "file": "assembled_preview_neutral.png",
+      "row": 1,
+      "column": 4,
+      "box": {
+        "left": 1003,
+        "top": 0,
+        "right": 1338,
+        "bottom": 235
+      },
+      "size": {
+        "width": 335,
+        "height": 235
+      }
+    },
+    {
+      "name": "assembled_preview_alt",
+      "file": "assembled_preview_alt.png",
+      "row": 1,
+      "column": 5,
+      "box": {
+        "left": 1338,
+        "top": 0,
+        "right": 1672,
+        "bottom": 235
+      },
+      "size": {
+        "width": 334,
+        "height": 235
+      }
+    },
+    {
+      "name": "eyes_neutral",
+      "file": "eyes_neutral.png",
+      "row": 2,
+      "column": 1,
+      "box": {
+        "left": 0,
+        "top": 235,
+        "right": 334,
+        "bottom": 470
+      },
+      "size": {
+        "width": 334,
+        "height": 235
+      }
+    },
+    {
+      "name": "eyes_half_closed",
+      "file": "eyes_half_closed.png",
+      "row": 2,
+      "column": 2,
+      "box": {
+        "left": 334,
+        "top": 235,
+        "right": 669,
+        "bottom": 470
+      },
+      "size": {
+        "width": 335,
+        "height": 235
+      }
+    },
+    {
+      "name": "eyes_closed",
+      "file": "eyes_closed.png",
+      "row": 2,
+      "column": 3,
+      "box": {
+        "left": 669,
+        "top": 235,
+        "right": 1003,
+        "bottom": 470
+      },
+      "size": {
+        "width": 334,
+        "height": 235
+      }
+    },
+    {
+      "name": "eyes_soft_closed",
+      "file": "eyes_soft_closed.png",
+      "row": 2,
+      "column": 4,
+      "box": {
+        "left": 1003,
+        "top": 235,
+        "right": 1338,
+        "bottom": 470
+      },
+      "size": {
+        "width": 335,
+        "height": 235
+      }
+    },
+    {
+      "name": "eyes_surprised",
+      "file": "eyes_surprised.png",
+      "row": 2,
+      "column": 5,
+      "box": {
+        "left": 1338,
+        "top": 235,
+        "right": 1672,
+        "bottom": 470
+      },
+      "size": {
+        "width": 334,
+        "height": 235
+      }
+    },
+    {
+      "name": "brows_neutral",
+      "file": "brows_neutral.png",
+      "row": 3,
+      "column": 1,
+      "box": {
+        "left": 0,
+        "top": 470,
+        "right": 334,
+        "bottom": 706
+      },
+      "size": {
+        "width": 334,
+        "height": 236
+      }
+    },
+    {
+      "name": "brows_soft",
+      "file": "brows_soft.png",
+      "row": 3,
+      "column": 2,
+      "box": {
+        "left": 334,
+        "top": 470,
+        "right": 669,
+        "bottom": 706
+      },
+      "size": {
+        "width": 335,
+        "height": 236
+      }
+    },
+    {
+      "name": "brows_worried",
+      "file": "brows_worried.png",
+      "row": 3,
+      "column": 3,
+      "box": {
+        "left": 669,
+        "top": 470,
+        "right": 1003,
+        "bottom": 706
+      },
+      "size": {
+        "width": 334,
+        "height": 236
+      }
+    },
+    {
+      "name": "brows_serious",
+      "file": "brows_serious.png",
+      "row": 3,
+      "column": 4,
+      "box": {
+        "left": 1003,
+        "top": 470,
+        "right": 1338,
+        "bottom": 706
+      },
+      "size": {
+        "width": 335,
+        "height": 236
+      }
+    },
+    {
+      "name": "brows_angry",
+      "file": "brows_angry.png",
+      "row": 3,
+      "column": 5,
+      "box": {
+        "left": 1338,
+        "top": 470,
+        "right": 1672,
+        "bottom": 706
+      },
+      "size": {
+        "width": 334,
+        "height": 236
+      }
+    },
+    {
+      "name": "mouth_neutral",
+      "file": "mouth_neutral.png",
+      "row": 4,
+      "column": 1,
+      "box": {
+        "left": 0,
+        "top": 706,
+        "right": 334,
+        "bottom": 941
+      },
+      "size": {
+        "width": 334,
+        "height": 235
+      }
+    },
+    {
+      "name": "mouth_smile",
+      "file": "mouth_smile.png",
+      "row": 4,
+      "column": 2,
+      "box": {
+        "left": 334,
+        "top": 706,
+        "right": 669,
+        "bottom": 941
+      },
+      "size": {
+        "width": 335,
+        "height": 235
+      }
+    },
+    {
+      "name": "mouth_open_small",
+      "file": "mouth_open_small.png",
+      "row": 4,
+      "column": 3,
+      "box": {
+        "left": 669,
+        "top": 706,
+        "right": 1003,
+        "bottom": 941
+      },
+      "size": {
+        "width": 334,
+        "height": 235
+      }
+    },
+    {
+      "name": "mouth_o",
+      "file": "mouth_o.png",
+      "row": 4,
+      "column": 4,
+      "box": {
+        "left": 1003,
+        "top": 706,
+        "right": 1338,
+        "bottom": 941
+      },
+      "size": {
+        "width": 335,
+        "height": 235
+      }
+    },
+    {
+      "name": "mouth_open_wide",
+      "file": "mouth_open_wide.png",
+      "row": 4,
+      "column": 5,
+      "box": {
+        "left": 1338,
+        "top": 706,
+        "right": 1672,
+        "bottom": 941
+      },
+      "size": {
+        "width": 334,
+        "height": 235
+      }
+    }
+  ]
+}

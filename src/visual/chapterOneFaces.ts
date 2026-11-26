@@ -92,7 +92,7 @@ const elder: FaceRig = {
     stern:{eyes:'eyes_stern',brows:'brows_stern',mouth:'mouth_neutral'},
   },
   sprites:{
-    base_head_neck:elderSprite('base_head_neck',[256,473],[256,473],1,[0,0,512,512]),
+    base_head_neck:elderSprite('base_head_neck_clean',[256,473],[256,473],1,[0,0,512,512]),
     eyes_neutral:elderSprite('eyes_neutral',[253,245],[253,216],.82,[132,209,242,72]),
     eyes_half_closed:elderSprite('eyes_half_closed',[253,245],[253,216],.82,[132,209,242,72]),
     eyes_closed:elderSprite('eyes_closed',[253,245],[253,216],.82,[132,209,242,72]),
@@ -102,10 +102,10 @@ const elder: FaceRig = {
     // This cell also contains eyes and nose creases. Keep only its two brows.
     brows_stern:{...elderSprite('brows_stern',[253,209],[253,191],.82,[141,175,233,42]),
       mask:'M141 181 Q159 173 176 180 L241 207 L244 215 L228 213 L170 190 L141 187 Z M270 208 L336 180 Q356 174 374 181 L374 188 L341 191 L285 213 L269 215 Z'},
-    mouth_neutral:elderSprite('mouth_neutral',[256,318],[254,311],.46,[204,303,104,31]),
-    mouth_open_small:elderSprite('mouth_open_small',[256,318],[254,311],.46,[212,300,88,30]),
-    mouth_open_wide:elderSprite('mouth_open_wide',[256,312],[254,311],.38,[204,285,105,53]),
-    mouth_o:elderSprite('mouth_o',[256,318],[254,311],.4,[237,295,38,45]),
+    mouth_neutral:elderSprite('mouth_neutral',[256,318],[254,302],.46,[204,303,104,31]),
+    mouth_open_small:elderSprite('mouth_open_small',[256,318],[254,302],.46,[212,300,88,30]),
+    mouth_open_wide:elderSprite('mouth_open_wide',[256,312],[254,302],.38,[204,285,105,53]),
+    mouth_o:elderSprite('mouth_o',[256,318],[254,303],.30,[237,285,38,67]),
   },
 };
 export const chapterOneFaces = {'tachibana-kairyu':kairyu,'minase-shiori':shiori,'elder-ritual-official':elder};

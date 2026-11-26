@@ -39,8 +39,8 @@
         512,
         512
       ],
-      "usable_at_runtime": true,
-      "anchor_notes": "fixed base head/hair/beard"
+      "usable_at_runtime": false,
+      "anchor_notes": "Original base retained as reference; contains baked mouth strokes. Use base_head_neck_clean."
     },
     {
       "name": "front_hair_reference",
@@ -209,6 +209,16 @@
       ],
       "usable_at_runtime": true,
       "anchor_notes": "feature aligned to shared 512 canvas"
+    },
+    {
+      "name": "base_head_neck_clean",
+      "file": "base_head_neck_clean.png",
+      "size": [
+        512,
+        512
+      ],
+      "usable_at_runtime": true,
+      "anchor_notes": "Fixed original base with only localized mouth strokes removed; original alpha and pixels outside x221..286/y297..314 are unchanged."
     }
   ]
 }

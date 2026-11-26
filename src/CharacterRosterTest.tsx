@@ -1,11 +1,12 @@
 import {AbsoluteFill,interpolate,useCurrentFrame,useVideoConfig} from 'remotion';
-import {YuuFacialRenderer} from './visual/YuuFacialRenderer';
-import type {YuuFaceExpression} from './visual/yuuFacialSprites';
+import {CharacterRenderer} from './visual/CharacterRenderer';
+import {sampleStarterPerformance,type StarterId} from './visual/starterSheets';
+import type {VisualExpression} from './visual/types';
 import {ChapterOneFacialRenderer} from './visual/ChapterOneFacialRenderer';
 import {NPCCharacter} from './visual/NPCCharacter';
 import {npcAssets,type NPCId} from './visual/npcAssets';
 
-const expressions:YuuFaceExpression[]=['neutral','happy','worried','serious','surprised'];
+const expressions:VisualExpression[]=['neutral','happy','worried','determined','surprised'];
 // Deterministic, staggered blinks. Mouth pulses demonstrate swapping, not audio sync.
 const blinkAt=(seconds:number,phase=0)=>{
   const t=(seconds+phase)%3.7;
@@ -18,14 +19,31 @@ const Faces=()=>{
   const speaking=t%2.4>.5||t>7;
   const mouth=speaking?(.5+.5*Math.sin(t*16)):undefined;
   return <g>
-    <g transform="translate(65 135) scale(.85)"><YuuFacialRenderer expression={expression} blink={blinkAt(t)} mouth={mouth===undefined?undefined:mouth>.65?'mouth_open_wide':mouth>.2?'mouth_open_small':'mouth_neutral'}/></g>
-    <g transform="translate(515 135) scale(.85)"><ChapterOneFacialRenderer characterId="tachibana-kairyu" expression={expression} blink={blinkAt(t,.15)} mouth={mouth}/></g>
-    <g transform="translate(965 135) scale(.85)"><ChapterOneFacialRenderer characterId="minase-shiori" expression={expression} blink={blinkAt(t,.1)} mouth={mouth}/></g>
+    {(['asakura-yuu','tachibana-kairyu','minase-shiori'] as StarterId[]).map((character,index)=>
+      <CharacterRenderer key={character} character={character} facialMode="sprites-v1" frame={frame} fps={fps}
+        performance={sampleStarterPerformance(character,frame,{fps,expression,talk:speaking,blink:blinkAt(t,index*.08),gesture:Math.sin(t)*.3})}
+        x={280+index*450} y={550} scale={.58}/>)}
     <g transform="translate(1415 135) scale(.85)"><ChapterOneFacialRenderer characterId="elder-ritual-official" expression={elderExpression} blink={blinkAt(t,.08)} mouth={mouth}/></g>
     <text x={280} y={585} textAnchor="middle">Asakura Yuu · {expression}</text>
     <text x={730} y={585} textAnchor="middle">Tachibana Kairyū · {expression}</text>
     <text x={1180} y={585} textAnchor="middle">Minase Shiori · {expression}</text>
     <text x={1630} y={585} textAnchor="middle">Ritual official · {elderExpression}</text>
+  </g>;
+};
+/** Two close-up holds expose the corrected base and every supported elder mouth. */
+const ElderCloseup=()=>{
+  const frame=useCurrentFrame(),{fps}=useVideoConfig(),t=frame/fps;
+  if(t<8)return null;
+  const mouth=t<9?'mouth_neutral':t<10?'mouth_open_small':t<11?'mouth_open_wide':'mouth_o';
+  return <g>
+    <rect width={1920} height={1080} fill="#424d5b"/>
+    <g transform="translate(450 -40) scale(2.1)"><ChapterOneFacialRenderer characterId="elder-ritual-official" expression="neutral" mouth={mouth}/></g>
+    <text x={65} y={65} fontSize={30}>Elder · {mouth.replace('mouth_','')}</text>
+    <text x={65} y={105} fontSize={20}>Corrected fixed base · original beard and independent mouth sprites</text>
+    {(['mouth_neutral','mouth_open_small','mouth_open_wide','mouth_o'] as const).map((shape,index)=><g key={shape} transform={`translate(1550 ${150+index*210})`}>
+      <g transform="scale(.4)"><ChapterOneFacialRenderer characterId="elder-ritual-official" mouth={shape}/></g>
+      <text x={110} y={205} textAnchor="middle" fontSize={18}>{shape.replace('mouth_','')}</text>
+    </g>)}
   </g>;
 };
 const NPCs=()=>{
@@ -54,5 +72,6 @@ export const CharacterRosterTest=()=> <AbsoluteFill style={{background:'#26313e'
     <text x={60} y={94} fontSize={19} fill="#aebaca">Noncanonical facial and cutout verification · fixed heads / independent facial features</text>
     <Faces/>
     <NPCs/>
+    <ElderCloseup/>
   </svg>
 </AbsoluteFill>;

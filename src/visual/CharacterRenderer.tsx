@@ -4,15 +4,30 @@ import {characterRegistry, type CharacterId} from '../production/characterRegist
 import {assertAssetPin, type AssetPin, type AssetIdOf} from '../production/assetRegistry';
 import type {CharacterAppearance, CharacterPerformance} from './types';
 import {provisionalAppearances} from './provisionalArtwork';
-import {starterAppearances} from './starterSheets';
+import {starterAppearances,type StarterId} from './starterSheets';
 import {LayeredCharacter} from './LayeredCharacter';
 import type {VisualStyle} from './style';
 import {YuuFacialRenderer} from './YuuFacialRenderer';
 import {yuuFaceFromPerformance} from './yuuFacialSprites';
+import {ChapterOneFacialRenderer,chapterFaceFromPerformance} from './ChapterOneFacialRenderer';
 
 // Preserve the starter body; an explicit facial mode replaces only its facial layers.
-const yuuSpriteBody={...starterAppearances['asakura-yuu'],layers:starterAppearances['asakura-yuu'].layers.filter(l=>
-  l.id!=='sheet-head-expressions'&&!l.id.startsWith('closed-lid-')&&l.id!=='talk-mouth')};
+const spriteBody=(id:StarterId):CharacterAppearance=>({
+  ...starterAppearances[id],layers:starterAppearances[id].layers.filter(l=>
+    l.id!=='sheet-head-expressions'&&!l.id.startsWith('closed-lid-')&&l.id!=='talk-mouth'&&l.id!=='hair-strands'),
+});
+const spriteBodies={
+  'asakura-yuu':spriteBody('asakura-yuu'),
+  'tachibana-kairyu':spriteBody('tachibana-kairyu'),
+  'minase-shiori':spriteBody('minase-shiori'),
+};
+const isStarter=(id:CharacterId):id is StarterId=>id in spriteBodies;
+// Landmarks are the neck joint in each fixed 512px facial canvas. Yuu is unchanged.
+const spriteHeadTransforms:Record<StarterId,string>={
+  'asakura-yuu':'scale(.32) translate(-253 -356)',
+  'tachibana-kairyu':'scale(.33) translate(-256 -442)',
+  'minase-shiori':'scale(.36) translate(-256 -390)',
+};
 
 /** Explicit lookup, never an evaluated registry source reference. Future art adds a new entry here. */
 export const resolveAppearance=(character:CharacterId,pin?:AssetPin<AssetIdOf<'character-art'>>):CharacterAppearance=>{
@@ -34,7 +49,7 @@ export const CharacterRenderer=({character,performance,frame,fps=30,x,y,scale=1,
   mode?:'layered'|'procedural';costume?:string;style?:VisualStyle;heldItem?:ReactNode;
   facialMode?:'starter'|'sprites-v1';
 })=>{
-  if(facialMode==='sprites-v1'&&(character!=='asakura-yuu'||mode!=='layered'))throw Error('facial-v1 requires layered Asakura Yuu');
+  if(facialMode==='sprites-v1'&&(mode!=='layered'||!(character in spriteBodies)))throw Error('facial-v1 requires a layered starter character');
   if(mode==='procedural'){
     costume??='student';
     if(costume!=='student'&&costume!=='mage')throw Error(`Unsupported procedural costume ${costume}`);
@@ -42,8 +57,15 @@ export const CharacterRenderer=({character,performance,frame,fps=30,x,y,scale=1,
       t={frame/fps} rig={performance.body} face={performance.face} costume={costume} sword={false} handItem={heldItem}/>;
   }
   const resolved=resolveAppearance(character,appearance);
-  if(facialMode==='sprites-v1'&&resolved!==starterAppearances['asakura-yuu'])throw Error('facial-v1 requires the starter Yuu body');
-  const headAttachment=facialMode==='sprites-v1'?<g transform="scale(.32) translate(-253 -356)"><YuuFacialRenderer {...yuuFaceFromPerformance(performance)} neckOnly/></g>:undefined;
-  return <LayeredCharacter appearance={facialMode==='sprites-v1'?yuuSpriteBody:resolved} performance={performance} headAttachment={headAttachment}
+  let body=resolved,headAttachment:ReactNode;
+  if(facialMode==='sprites-v1'){
+    if(!isStarter(character)||resolved!==starterAppearances[character])throw Error('facial-v1 requires the matching starter body');
+    body=spriteBodies[character];
+    headAttachment=<g transform={spriteHeadTransforms[character]}>
+      {character==='asakura-yuu'?<YuuFacialRenderer {...yuuFaceFromPerformance(performance)} neckOnly/>
+        :<ChapterOneFacialRenderer characterId={character} {...chapterFaceFromPerformance(performance)} neckOnly/>}
+    </g>;
+  }
+  return <LayeredCharacter appearance={body} performance={performance} headAttachment={headAttachment}
     x={x} y={y} scale={scale} facing={facing} costume={costume??resolved.costumes[0]} style={style} heldItem={heldItem}/>;
 };

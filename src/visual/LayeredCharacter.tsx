@@ -48,9 +48,9 @@ const Layer = ({layer,matrix,performance,costume,uid,style}: {
 };
 
 /** SVG host required. Remotion Img waits for local PNG/WebP/SVG decoding before capturing a frame. */
-export const LayeredCharacter = ({appearance,performance,x,y,scale=1,facing=1,costume='student',style={},heldItem}: {
+export const LayeredCharacter = ({appearance,performance,x,y,scale=1,facing=1,costume='student',style={},heldItem,headAttachment}: {
   appearance:CharacterAppearance;performance:CharacterPerformance;x:number;y:number;scale?:number;facing?:1|-1;
-  costume?:string;style?:VisualStyle;heldItem?:ReactNode;
+  costume?:string;style?:VisualStyle;heldItem?:ReactNode;headAttachment?:ReactNode;
 }) => {
   const uid=useId().replace(/[^a-zA-Z0-9_-]/g,''),matrices=solveRig(appearance.rig,performance);
   if(!appearance.costumes.includes(costume))throw Error(`Unsupported costume ${costume} for ${appearance.id}`);
@@ -59,6 +59,7 @@ export const LayeredCharacter = ({appearance,performance,x,y,scale=1,facing=1,co
   return <g transform={`translate(${x} ${y}) scale(${scale*facing} ${scale})`} opacity={style.opacity??1} style={{filter:correction}}>
     {appearance.layers.map(layer=><Layer key={layer.id} layer={layer} matrix={matrices[layer.bone]}
       performance={performance} costume={costume} uid={uid} style={style}/>)}
+    {headAttachment&&<g transform={`matrix(${matrices.head.join(' ')})`}>{headAttachment}</g>}
     {heldItem&&<g transform={`matrix(${matrices.handR.join(' ')})`}>{heldItem}</g>}
   </g>;
 };

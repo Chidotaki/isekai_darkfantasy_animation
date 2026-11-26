@@ -1,0 +1,572 @@
+{
+  "character": "asakura-yuu",
+  "source": "Simplified animation reference",
+  "purpose": "facial sprite atlas (NOT pre-rigged or artist-layered PSD)",
+  "columns": 4,
+  "rows": 5,
+  "cell_width": 512,
+  "cell_height": 512,
+  "alpha": "RGBA true transparency",
+  "sprites": [
+    {
+      "name": "back_hair",
+      "row": 0,
+      "column": 0,
+      "atlas_rect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "file": "back_hair.png",
+      "size": [
+        512,
+        512
+      ],
+      "asset_bbox_in_cell": [
+        100,
+        93,
+        312,
+        326
+      ],
+      "source_rect": [
+        54,
+        16,
+        312,
+        326
+      ]
+    },
+    {
+      "name": "base_head_neck",
+      "row": 0,
+      "column": 1,
+      "atlas_rect": [
+        512,
+        0,
+        512,
+        512
+      ],
+      "file": "base_head_neck.png",
+      "size": [
+        512,
+        512
+      ],
+      "asset_bbox_in_cell": [
+        113,
+        54,
+        285,
+        403
+      ],
+      "source_rect": [
+        425,
+        12,
+        285,
+        403
+      ]
+    },
+    {
+      "name": "front_hair",
+      "row": 0,
+      "column": 2,
+      "atlas_rect": [
+        1024,
+        0,
+        512,
+        512
+      ],
+      "file": "front_hair.png",
+      "size": [
+        512,
+        512
+      ],
+      "asset_bbox_in_cell": [
+        92,
+        123,
+        328,
+        266
+      ],
+      "source_rect": [
+        785,
+        15,
+        328,
+        266
+      ]
+    },
+    {
+      "name": "assembled_preview",
+      "row": 0,
+      "column": 3,
+      "atlas_rect": [
+        1536,
+        0,
+        512,
+        512
+      ],
+      "file": "assembled_preview.png",
+      "size": [
+        512,
+        512
+      ],
+      "asset_bbox_in_cell": [
+        103,
+        51,
+        306,
+        409
+      ],
+      "source_rect": [
+        1159,
+        10,
+        306,
+        409
+      ]
+    },
+    {
+      "name": "eyes_neutral",
+      "row": 1,
+      "column": 0,
+      "atlas_rect": [
+        0,
+        512,
+        512,
+        512
+      ],
+      "file": "eyes_neutral.png",
+      "size": [
+        512,
+        512
+      ],
+      "asset_bbox_in_cell": [
+        128,
+        217,
+        255,
+        77
+      ],
+      "source_rect": [
+        87,
+        445,
+        255,
+        77
+      ]
+    },
+    {
+      "name": "eyes_half_closed",
+      "row": 1,
+      "column": 1,
+      "atlas_rect": [
+        512,
+        512,
+        512,
+        512
+      ],
+      "file": "eyes_half_closed.png",
+      "size": [
+        512,
+        512
+      ],
+      "asset_bbox_in_cell": [
+        133,
+        221,
+        246,
+        69
+      ],
+      "source_rect": [
+        451,
+        450,
+        246,
+        69
+      ]
+    },
+    {
+      "name": "eyes_closed",
+      "row": 1,
+      "column": 2,
+      "atlas_rect": [
+        1024,
+        512,
+        512,
+        512
+      ],
+      "file": "eyes_closed.png",
+      "size": [
+        512,
+        512
+      ],
+      "asset_bbox_in_cell": [
+        129,
+        225,
+        254,
+        62
+      ],
+      "source_rect": [
+        825,
+        451,
+        254,
+        62
+      ]
+    },
+    {
+      "name": "eyes_surprised",
+      "row": 1,
+      "column": 3,
+      "atlas_rect": [
+        1536,
+        512,
+        512,
+        512
+      ],
+      "file": "eyes_surprised.png",
+      "size": [
+        512,
+        512
+      ],
+      "asset_bbox_in_cell": [
+        139,
+        211,
+        234,
+        90
+      ],
+      "source_rect": [
+        1206,
+        436,
+        234,
+        90
+      ]
+    },
+    {
+      "name": "brows_neutral",
+      "row": 2,
+      "column": 0,
+      "atlas_rect": [
+        0,
+        1024,
+        512,
+        512
+      ],
+      "file": "brows_neutral.png",
+      "size": [
+        512,
+        512
+      ],
+      "asset_bbox_in_cell": [
+        124,
+        237,
+        264,
+        37
+      ],
+      "source_rect": [
+        82,
+        602,
+        264,
+        37
+      ]
+    },
+    {
+      "name": "brows_soft",
+      "row": 2,
+      "column": 1,
+      "atlas_rect": [
+        512,
+        1024,
+        512,
+        512
+      ],
+      "file": "brows_soft.png",
+      "size": [
+        512,
+        512
+      ],
+      "asset_bbox_in_cell": [
+        127,
+        231,
+        258,
+        49
+      ],
+      "source_rect": [
+        455,
+        584,
+        258,
+        49
+      ]
+    },
+    {
+      "name": "brows_worried",
+      "row": 2,
+      "column": 2,
+      "atlas_rect": [
+        1024,
+        1024,
+        512,
+        512
+      ],
+      "file": "brows_worried.png",
+      "size": [
+        512,
+        512
+      ],
+      "asset_bbox_in_cell": [
+        141,
+        226,
+        230,
+        60
+      ],
+      "source_rect": [
+        836,
+        581,
+        230,
+        60
+      ]
+    },
+    {
+      "name": "brows_angry",
+      "row": 2,
+      "column": 3,
+      "atlas_rect": [
+        1536,
+        1024,
+        512,
+        512
+      ],
+      "file": "brows_angry.png",
+      "size": [
+        512,
+        512
+      ],
+      "asset_bbox_in_cell": [
+        117,
+        229,
+        278,
+        54
+      ],
+      "source_rect": [
+        1181,
+        589,
+        278,
+        54
+      ]
+    },
+    {
+      "name": "mouth_neutral",
+      "row": 3,
+      "column": 0,
+      "atlas_rect": [
+        0,
+        1536,
+        512,
+        512
+      ],
+      "file": "mouth_neutral.png",
+      "size": [
+        512,
+        512
+      ],
+      "asset_bbox_in_cell": [
+        202,
+        234,
+        107,
+        43
+      ],
+      "source_rect": [
+        163,
+        737,
+        107,
+        43
+      ]
+    },
+    {
+      "name": "mouth_smile",
+      "row": 3,
+      "column": 1,
+      "atlas_rect": [
+        512,
+        1536,
+        512,
+        512
+      ],
+      "file": "mouth_smile.png",
+      "size": [
+        512,
+        512
+      ],
+      "asset_bbox_in_cell": [
+        192,
+        228,
+        128,
+        55
+      ],
+      "source_rect": [
+        514,
+        735,
+        128,
+        55
+      ]
+    },
+    {
+      "name": "mouth_open_small",
+      "row": 3,
+      "column": 2,
+      "atlas_rect": [
+        1024,
+        1536,
+        512,
+        512
+      ],
+      "file": "mouth_open_small.png",
+      "size": [
+        512,
+        512
+      ],
+      "asset_bbox_in_cell": [
+        202,
+        206,
+        108,
+        99
+      ],
+      "source_rect": [
+        892,
+        712,
+        108,
+        99
+      ]
+    },
+    {
+      "name": "mouth_o",
+      "row": 3,
+      "column": 3,
+      "atlas_rect": [
+        1536,
+        1536,
+        512,
+        512
+      ],
+      "file": "mouth_o.png",
+      "size": [
+        512,
+        512
+      ],
+      "asset_bbox_in_cell": [
+        227,
+        216,
+        58,
+        80
+      ],
+      "source_rect": [
+        1289,
+        720,
+        58,
+        80
+      ]
+    },
+    {
+      "name": "mouth_open_wide",
+      "row": 4,
+      "column": 0,
+      "atlas_rect": [
+        0,
+        2048,
+        512,
+        512
+      ],
+      "file": "mouth_open_wide.png",
+      "size": [
+        512,
+        512
+      ],
+      "asset_bbox_in_cell": [
+        198,
+        199,
+        116,
+        113
+      ],
+      "source_rect": [
+        159,
+        858,
+        116,
+        113
+      ]
+    },
+    {
+      "name": "mouth_open_narrow",
+      "row": 4,
+      "column": 1,
+      "atlas_rect": [
+        512,
+        2048,
+        512,
+        512
+      ],
+      "file": "mouth_open_narrow.png",
+      "size": [
+        512,
+        512
+      ],
+      "asset_bbox_in_cell": [
+        196,
+        224,
+        119,
+        64
+      ],
+      "source_rect": [
+        518,
+        884,
+        119,
+        64
+      ]
+    },
+    {
+      "name": "mouth_sad",
+      "row": 4,
+      "column": 2,
+      "atlas_rect": [
+        1024,
+        2048,
+        512,
+        512
+      ],
+      "file": "mouth_sad.png",
+      "size": [
+        512,
+        512
+      ],
+      "asset_bbox_in_cell": [
+        192,
+        231,
+        128,
+        49
+      ],
+      "source_rect": [
+        883,
+        887,
+        128,
+        49
+      ]
+    },
+    {
+      "name": "mouth_tense",
+      "row": 4,
+      "column": 3,
+      "atlas_rect": [
+        1536,
+        2048,
+        512,
+        512
+      ],
+      "file": "mouth_tense.png",
+      "size": [
+        512,
+        512
+      ],
+      "asset_bbox_in_cell": [
+        180,
+        220,
+        152,
+        72
+      ],
+      "source_rect": [
+        1240,
+        878,
+        152,
+        72
+      ]
+    }
+  ]
+}

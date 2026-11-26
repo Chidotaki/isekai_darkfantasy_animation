@@ -1,0 +1,436 @@
+{
+  "version": "0.1.0",
+  "episodeId": "episode-001",
+  "status": "cue-slots-only-no-tts-audio",
+  "privacy": "Do not commit the manuscript or actual narration text to this public template. Private local working copy should have displayText and ttsText for each cue.",
+  "format": "For each speech cue in a PRIVATE LOCAL COPY add displayText, ttsText, audioPath and measuredDurationSeconds after synthesis. Always keep displayText original and replace 'Asakura Yuu' only in ttsText.",
+  "speakerModel": "single Vietnamese female voice for all spoken lines",
+  "durationPolicy": "Use WAV durations, not estimated character counts; silent_action has no audio file.",
+  "cues": [
+    {
+      "cueId": "s001-v01",
+      "sceneId": "s001",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "rejected-seat dialogue",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s001-v02",
+      "sceneId": "s001",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "Yuu's first-person self-introduction and isolation",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s001-a01",
+      "sceneId": "s001",
+      "kind": "silent_action",
+      "action": "the student's departure and reaction hold",
+      "status": "visual-hold-pending-timing"
+    },
+    {
+      "cueId": "s002-v01",
+      "sceneId": "s002",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "Kairyū's breakfast dialogue",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s002-v02",
+      "sceneId": "s002",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "Yuu reflecting on Kairyū's kindness",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s002-v03",
+      "sceneId": "s002",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "Shiori checking attendance",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s002-v04",
+      "sceneId": "s002",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "Yuu's past friendship with Shiori and her present affection for Kairyū",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s002-a01",
+      "sceneId": "s002",
+      "kind": "silent_action",
+      "action": "bread placed on seat",
+      "status": "visual-hold-pending-timing"
+    },
+    {
+      "cueId": "s002-a02",
+      "sceneId": "s002",
+      "kind": "silent_action",
+      "action": "the quiet glance toward the pair",
+      "status": "visual-hold-pending-timing"
+    },
+    {
+      "cueId": "s003-v01",
+      "sceneId": "s003",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "classmates discussing group registration",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s003-v02",
+      "sceneId": "s003",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "Kairyū inviting Yuu and Yuu declining",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s003-v03",
+      "sceneId": "s003",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "private conversation about fitting in",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s003-v04",
+      "sceneId": "s003",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "Yuu reflecting on that distance",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s003-a01",
+      "sceneId": "s003",
+      "kind": "silent_action",
+      "action": "uncomfortable classmate glance",
+      "status": "visual-hold-pending-timing"
+    },
+    {
+      "cueId": "s003-a02",
+      "sceneId": "s003",
+      "kind": "silent_action",
+      "action": "Shiori-Yuu mutual nod",
+      "status": "visual-hold-pending-timing"
+    },
+    {
+      "cueId": "s004-v01",
+      "sceneId": "s004",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "Yuu's restrained observations on exclusion and Kairyū",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s004-v02",
+      "sceneId": "s004",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "transition to the mountainous drive",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s004-v03",
+      "sceneId": "s004",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "Yuu noticing impossible stillness outside",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s004-a01",
+      "sceneId": "s004",
+      "kind": "silent_action",
+      "action": "bread bite and moment of quiet",
+      "status": "visual-hold-pending-timing"
+    },
+    {
+      "cueId": "s004-a02",
+      "sceneId": "s004",
+      "kind": "silent_action",
+      "action": "short bracelet interaction without emphasis or extra lore",
+      "status": "visual-hold-pending-timing"
+    },
+    {
+      "cueId": "s004-a03",
+      "sceneId": "s004",
+      "kind": "silent_action",
+      "action": "suspended leaf reveal",
+      "status": "visual-hold-pending-timing"
+    },
+    {
+      "cueId": "s005-v01",
+      "sceneId": "s005",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "brief student panic and teacher's instruction",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s005-v02",
+      "sceneId": "s005",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "Yuu registering the magic circle",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s005-a01",
+      "sceneId": "s005",
+      "kind": "silent_action",
+      "action": "rune expansion and panic beat",
+      "status": "visual-hold-pending-timing"
+    },
+    {
+      "cueId": "s005-a02",
+      "sceneId": "s005",
+      "kind": "silent_action",
+      "action": "white-flash transition",
+      "status": "visual-hold-pending-timing"
+    },
+    {
+      "cueId": "s006-v01",
+      "sceneId": "s006",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "awakening and hall observation",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s006-v02",
+      "sceneId": "s006",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "no service and search for the missing bus",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s006-v03",
+      "sceneId": "s006",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "checking for injuries and the water handoff",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s006-v04",
+      "sceneId": "s006",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "Yuu noticing absent teachers and social distance",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s006-a01",
+      "sceneId": "s006",
+      "kind": "silent_action",
+      "action": "first hall reveal",
+      "status": "visual-hold-pending-timing"
+    },
+    {
+      "cueId": "s006-a02",
+      "sceneId": "s006",
+      "kind": "silent_action",
+      "action": "students slowly recovering on floor",
+      "status": "visual-hold-pending-timing"
+    },
+    {
+      "cueId": "s006-a03",
+      "sceneId": "s006",
+      "kind": "silent_action",
+      "action": "brief reaction after someone avoids Yuu",
+      "status": "visual-hold-pending-timing"
+    },
+    {
+      "cueId": "s007-v01",
+      "sceneId": "s007",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "Yuu's observation of the hall and isolation",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s007-v02",
+      "sceneId": "s007",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "Kairyū encouraging Yuu to remain with the group",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s007-v03",
+      "sceneId": "s007",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "Yuu's private comparison of Kairyū to a hero",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s007-a01",
+      "sceneId": "s007",
+      "kind": "silent_action",
+      "action": "shared glance toward group",
+      "status": "visual-hold-pending-timing"
+    },
+    {
+      "cueId": "s007-a02",
+      "sceneId": "s007",
+      "kind": "silent_action",
+      "action": "stone door opening",
+      "status": "visual-hold-pending-timing"
+    },
+    {
+      "cueId": "s008-v01",
+      "sceneId": "s008",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "elder's greeting and location explanation",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s008-v02",
+      "sceneId": "s008",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "summoning and war context",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s008-v03",
+      "sceneId": "s008",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "question about returning",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s008-v04",
+      "sceneId": "s008",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "reaction and Kairyū's request",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s008-a01",
+      "sceneId": "s008",
+      "kind": "silent_action",
+      "action": "knights forming ranks",
+      "status": "visual-hold-pending-timing"
+    },
+    {
+      "cueId": "s008-a02",
+      "sceneId": "s008",
+      "kind": "silent_action",
+      "action": "elder bow",
+      "status": "visual-hold-pending-timing"
+    },
+    {
+      "cueId": "s008-a03",
+      "sceneId": "s008",
+      "kind": "silent_action",
+      "action": "hall reaction without forced talking-mouth cycle",
+      "status": "visual-hold-pending-timing"
+    },
+    {
+      "cueId": "s009-v01",
+      "sceneId": "s009",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "elder introducing divine blessings",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s009-v02",
+      "sceneId": "s009",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "Yuu's light humor with Kairyū",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s009-v03",
+      "sceneId": "s009",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "elder invoking blessings",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s009-v04",
+      "sceneId": "s009",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "class response to the golden light and sword",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s009-a01",
+      "sceneId": "s009",
+      "kind": "silent_action",
+      "action": "magic circle activation",
+      "status": "visual-hold-pending-timing"
+    },
+    {
+      "cueId": "s009-a02",
+      "sceneId": "s009",
+      "kind": "silent_action",
+      "action": "golden column and sword manifestation",
+      "status": "visual-hold-pending-timing"
+    },
+    {
+      "cueId": "s009-a03",
+      "sceneId": "s009",
+      "kind": "silent_action",
+      "action": "knights' kneeling",
+      "status": "visual-hold-pending-timing"
+    },
+    {
+      "cueId": "s010-v01",
+      "sceneId": "s010",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "Yuu recognizing Kairyū as the hero",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s010-v02",
+      "sceneId": "s010",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "Yuu quietly hoping for a useful blessing",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s010-v03",
+      "sceneId": "s010",
+      "kind": "speech",
+      "speakerId": "narrator",
+      "contentTopic": "final internal realization that no light has come",
+      "status": "awaiting-private-manuscript-and-waveform"
+    },
+    {
+      "cueId": "s010-a01",
+      "sceneId": "s010",
+      "kind": "silent_action",
+      "action": "Yuu looking upward",
+      "status": "visual-hold-pending-timing"
+    },
+    {
+      "cueId": "s010-a02",
+      "sceneId": "s010",
+      "kind": "silent_action",
+      "action": "final empty-space hold",
+      "status": "visual-hold-pending-timing"
+    }
+  ]
+}

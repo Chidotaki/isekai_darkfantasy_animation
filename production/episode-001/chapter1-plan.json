@@ -1,0 +1,530 @@
+{
+  "version": "0.1.0",
+  "status": "production-blueprint-not-rendered",
+  "episodeId": "episode-001",
+  "title": "Chuyến dã ngoại",
+  "source": {
+    "title": "Isekai Dark Fantasy Project.docx",
+    "chapter": 1,
+    "pages": "1–21",
+    "access": "approved local/private manuscript, NOT in GitHub",
+    "boundary": "End precisely when Yuu realizes no blessing light is above him. Do not include Chapter 2."
+  },
+  "format": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "style": "2D limited cutout/motion comic; narrative-driven, not static slideshow",
+    "targetSeconds": "approximately 8–12 minutes, provisional and subordinate to faithful adaptation"
+  },
+  "planningRules": {
+    "sourceOfTruth": "Exact approved chapter must be consulted locally before writing spoken lines. This file includes original summaries, not canonical dialogue.",
+    "uniforms": "Keep Japanese school uniforms before AND immediately after summoning. Existing fantasy body art is not a canonical costume for Episode 001.",
+    "elder": "Avoid extreme mouth closeups; neutral speaking state, medium/wide reaction cuts and staff/other-character cutaways while facial source is limited.",
+    "bracelet": "Only one understated source-supported gesture on the bus; do not assign origin, powers or romantic meaning.",
+    "speaker": "ONE female Vietnamese narrator for narration and all dialogue; character speaker metadata only controls on-screen mouth reactions.",
+    "pronunciation": {
+      "Asakura Yuu": "Asakura Yu"
+    },
+    "timing": "Use measured WAV durations; preserve silence and action-only holds; do not lock scene durations from provisional targets.",
+    "resource": "Limit Chromium render concurrency to 1 at preview; do not run local VieNeu-TTS at the same time as heavy rendering.",
+    "media": "Do not commit private manuscript or unapproved WAV/character concept images."
+  },
+  "scenes": [
+    {
+      "id": "s001",
+      "title": "The empty seat",
+      "sourcePages": [
+        1,
+        2
+      ],
+      "provisionalDurationSeconds": 45,
+      "shots": [
+        {
+          "id": "s001-sh001",
+          "description": "Medium interior bus; a student asks about the vacant seat beside Yuu",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s001-sh002",
+          "description": "The student changes direction to another available seat; Yuu remains alone",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s001-sh003",
+          "description": "Wide bus interior; student groups talk while Yuu watches quietly",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s001-sh004",
+          "description": "Close on Yuu placing his bag onto the empty seat, then looking away",
+          "renderStatus": "planned"
+        }
+      ],
+      "voiceTopics": [
+        "rejected-seat dialogue",
+        "Yuu's first-person self-introduction and isolation"
+      ],
+      "deliberateSilentActions": [
+        "the student's departure and reaction hold"
+      ],
+      "requiredAssets": [
+        "school-bus interior",
+        "seated Yuu in modern Japanese uniform",
+        "standing student with backpack",
+        "background seated classmates"
+      ]
+    },
+    {
+      "id": "s002",
+      "title": "Breakfast and Shiori",
+      "sourcePages": [
+        2,
+        5
+      ],
+      "provisionalDurationSeconds": 75,
+      "shots": [
+        {
+          "id": "s002-sh001",
+          "description": "Kairyū moves through the aisle and checks if Yuu has eaten",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s002-sh002",
+          "description": "Kairyū puts a bread roll on the empty seat and pats Yuu's shoulder",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s002-sh003",
+          "description": "Shiori approaches with class attendance paper and corrects the list with Kairyū",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s002-sh004",
+          "description": "Yuu watches Shiori and Kairyū, then resumes looking at his phone",
+          "renderStatus": "planned"
+        }
+      ],
+      "voiceTopics": [
+        "Kairyū's breakfast dialogue",
+        "Yuu reflecting on Kairyū's kindness",
+        "Shiori checking attendance",
+        "Yuu's past friendship with Shiori and her present affection for Kairyū"
+      ],
+      "deliberateSilentActions": [
+        "bread placed on seat",
+        "the quiet glance toward the pair"
+      ],
+      "requiredAssets": [
+        "bus aisle and seats",
+        "uniform standing Kairyū",
+        "bread prop",
+        "paper and pen props",
+        "uniform Shiori standing"
+      ]
+    },
+    {
+      "id": "s003",
+      "title": "Group assignment",
+      "sourcePages": [
+        5,
+        8
+      ],
+      "provisionalDurationSeconds": 60,
+      "shots": [
+        {
+          "id": "s003-sh001",
+          "description": "Yuu notices his name is missing from the six-person group list",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s003-sh002",
+          "description": "Kairyū offers Yuu the last opening in his group; other classmates react awkwardly",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s003-sh003",
+          "description": "Kairyū sits facing Yuu for a private conversation",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s003-sh004",
+          "description": "Shiori waits near the aisle; she and Yuu exchange only a brief polite look",
+          "renderStatus": "planned"
+        }
+      ],
+      "voiceTopics": [
+        "classmates discussing group registration",
+        "Kairyū inviting Yuu and Yuu declining",
+        "private conversation about fitting in",
+        "Yuu reflecting on that distance"
+      ],
+      "deliberateSilentActions": [
+        "uncomfortable classmate glance",
+        "Shiori-Yuu mutual nod"
+      ],
+      "requiredAssets": [
+        "phone screen prop",
+        "school bus seating pose for Kairyū",
+        "background seated classmates",
+        "attendance list"
+      ]
+    },
+    {
+      "id": "s004",
+      "title": "The frozen landscape",
+      "sourcePages": [
+        8,
+        10
+      ],
+      "provisionalDurationSeconds": 65,
+      "shots": [
+        {
+          "id": "s004-sh001",
+          "description": "Snacks are passed to other students but bypass Yuu",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s004-sh002",
+          "description": "Yuu eats the bread alone; Kairyū and Shiori join a noisy guessing game at the front",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s004-sh003",
+          "description": "Mountain road seen through the moving bus window; Yuu briefly handles his old silver bracelet and lowers his sleeve",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s004-sh004",
+          "description": "A leaf hangs motionless outside; far clouds remain static despite the still-vibrating bus",
+          "renderStatus": "planned"
+        }
+      ],
+      "voiceTopics": [
+        "Yuu's restrained observations on exclusion and Kairyū",
+        "transition to the mountainous drive",
+        "Yuu noticing impossible stillness outside"
+      ],
+      "deliberateSilentActions": [
+        "bread bite and moment of quiet",
+        "short bracelet interaction without emphasis or extra lore",
+        "suspended leaf reveal"
+      ],
+      "requiredAssets": [
+        "bus window parallax mountain-road environment",
+        "bread and bottle props",
+        "one subtle bracelet gesture",
+        "suspended leaf visual effect"
+      ]
+    },
+    {
+      "id": "s005",
+      "title": "Summoning on the bus",
+      "sourcePages": [
+        10,
+        11
+      ],
+      "provisionalDurationSeconds": 25,
+      "shots": [
+        {
+          "id": "s005-sh001",
+          "description": "Students and teacher shout as the bus seems stuck in a still world",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s005-sh002",
+          "description": "Kairyū tells everyone to sit down; the first luminous runes appear beneath the seats",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s005-sh003",
+          "description": "Large magic circle expands across the floor; passengers grab seats amid panic",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s005-sh004",
+          "description": "Pure white light consumes the bus image; cut to darkness for the transition",
+          "renderStatus": "planned"
+        }
+      ],
+      "voiceTopics": [
+        "brief student panic and teacher's instruction",
+        "Yuu registering the magic circle"
+      ],
+      "deliberateSilentActions": [
+        "rune expansion and panic beat",
+        "white-flash transition"
+      ],
+      "requiredAssets": [
+        "bus floor perspective",
+        "layered circle/rune effect",
+        "light and shake effects",
+        "uniform student reactions"
+      ]
+    },
+    {
+      "id": "s006",
+      "title": "Waking in the stone hall",
+      "sourcePages": [
+        11,
+        14
+      ],
+      "provisionalDurationSeconds": 80,
+      "shots": [
+        {
+          "id": "s006-sh001",
+          "description": "Yuu wakes on the stone floor beneath unfamiliar vaulted architecture",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s006-sh002",
+          "description": "Hall-wide shot: classmates scattered near a ritual circle; the bus has vanished",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s006-sh003",
+          "description": "Yuu checks a phone with no signal and recovers his backpack",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s006-sh004",
+          "description": "Kairyū organizes help for an injured student while Yuu offers a water bottle",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s006-sh005",
+          "description": "Other classmates avoid conversation with Yuu; Shiori helps another injured classmate",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s006-sh006",
+          "description": "Class counts reveal the school staff seem absent",
+          "renderStatus": "planned"
+        }
+      ],
+      "voiceTopics": [
+        "awakening and hall observation",
+        "no service and search for the missing bus",
+        "checking for injuries and the water handoff",
+        "Yuu noticing absent teachers and social distance"
+      ],
+      "deliberateSilentActions": [
+        "first hall reveal",
+        "students slowly recovering on floor",
+        "brief reaction after someone avoids Yuu"
+      ],
+      "requiredAssets": [
+        "stone hall background with no windows",
+        "fallen and sitting uniform student poses",
+        "phone and bag props",
+        "water bottle",
+        "ritual floor circle"
+      ]
+    },
+    {
+      "id": "s007",
+      "title": "Yuu by the column",
+      "sourcePages": [
+        14,
+        16
+      ],
+      "provisionalDurationSeconds": 55,
+      "shots": [
+        {
+          "id": "s007-sh001",
+          "description": "Classmates gather around Kairyū while Yuu sits alone near a stone column",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s007-sh002",
+          "description": "Kairyū speaks beside him; Yuu jokes about the hall having no windows",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s007-sh003",
+          "description": "Kairyū returns to the larger group and Shiori hands him the list",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s007-sh004",
+          "description": "The hall's massive stone door begins to open with a deep rumble",
+          "renderStatus": "planned"
+        }
+      ],
+      "voiceTopics": [
+        "Yuu's observation of the hall and isolation",
+        "Kairyū encouraging Yuu to remain with the group",
+        "Yuu's private comparison of Kairyū to a hero"
+      ],
+      "deliberateSilentActions": [
+        "shared glance toward group",
+        "stone door opening"
+      ],
+      "requiredAssets": [
+        "hall column and step",
+        "seated floor/stair pose for Yuu and Kairyū",
+        "large stone door animation",
+        "uniform Shiori"
+      ]
+    },
+    {
+      "id": "s008",
+      "title": "The ritual delegation",
+      "sourcePages": [
+        16,
+        18
+      ],
+      "provisionalDurationSeconds": 90,
+      "shots": [
+        {
+          "id": "s008-sh001",
+          "description": "Silver-armored knights enter and form rows with white-robed clerics",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s008-sh002",
+          "description": "Elder enters with a blue-gem staff and bows; avoid extreme facial closeups",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s008-sh003",
+          "description": "Kairyū questions him; the class learns they have been summoned to another world",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s008-sh004",
+          "description": "The elder explains the Demon King threat and asks for aid",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s008-sh005",
+          "description": "The class becomes distressed when told there is currently no known return ritual",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s008-sh006",
+          "description": "Kairyū requests safety and time to understand the situation",
+          "renderStatus": "planned"
+        }
+      ],
+      "voiceTopics": [
+        "elder's greeting and location explanation",
+        "summoning and war context",
+        "question about returning",
+        "reaction and Kairyū's request"
+      ],
+      "deliberateSilentActions": [
+        "knights forming ranks",
+        "elder bow",
+        "hall reaction without forced talking-mouth cycle"
+      ],
+      "requiredAssets": [
+        "4 existing knight standing cutouts",
+        "4 existing cleric standing cutouts",
+        "elder fixed bust with neutral mouth",
+        "staff prop",
+        "hall door"
+      ]
+    },
+    {
+      "id": "s009",
+      "title": "The blessings and the hero",
+      "sourcePages": [
+        18,
+        20
+      ],
+      "provisionalDurationSeconds": 85,
+      "shots": [
+        {
+          "id": "s009-sh001",
+          "description": "Elder invites the students to stand within the ritual circle",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s009-sh002",
+          "description": "Kairyū makes room for Yuu; Shiori stands on Kairyū's other side",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s009-sh003",
+          "description": "Glowing runes and multicolored lights gather overhead",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s009-sh004",
+          "description": "A much stronger golden column surrounds Kairyū; a slender luminous sword appears",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s009-sh005",
+          "description": "Knights kneel; the elder declares that a hero has appeared; classmates react",
+          "renderStatus": "planned"
+        }
+      ],
+      "voiceTopics": [
+        "elder introducing divine blessings",
+        "Yuu's light humor with Kairyū",
+        "elder invoking blessings",
+        "class response to the golden light and sword"
+      ],
+      "deliberateSilentActions": [
+        "magic circle activation",
+        "golden column and sword manifestation",
+        "knights' kneeling"
+      ],
+      "requiredAssets": [
+        "magic circle full-stage",
+        "multicolored blessings",
+        "golden column and sword glow",
+        "kneeling knight pose or cropped shot",
+        "standing students in original uniforms"
+      ]
+    },
+    {
+      "id": "s010",
+      "title": "No light for Yuu",
+      "sourcePages": [
+        20,
+        21
+      ],
+      "provisionalDurationSeconds": 35,
+      "shots": [
+        {
+          "id": "s010-sh001",
+          "description": "Classmates receive more lights and celebrate; Kairyū remains in the golden pillar",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s010-sh002",
+          "description": "Yuu waits expectantly and looks up",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s010-sh003",
+          "description": "Slow, controlled camera framing shows empty darkness above Yuu, unlike everyone else",
+          "renderStatus": "planned"
+        },
+        {
+          "id": "s010-sh004",
+          "description": "Hold for a quiet ending: the space above his head remains empty; stop at Chapter 1 boundary",
+          "renderStatus": "planned"
+        }
+      ],
+      "voiceTopics": [
+        "Yuu recognizing Kairyū as the hero",
+        "Yuu quietly hoping for a useful blessing",
+        "final internal realization that no light has come"
+      ],
+      "deliberateSilentActions": [
+        "Yuu looking upward",
+        "final empty-space hold"
+      ],
+      "requiredAssets": [
+        "ritual hall continuity",
+        "blessing light instances",
+        "Yuu uniform head/body",
+        "subtle silence transition"
+      ]
+    }
+  ]
+}

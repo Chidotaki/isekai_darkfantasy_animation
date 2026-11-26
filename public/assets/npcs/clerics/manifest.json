@@ -1,0 +1,52 @@
+{
+  "category": "clerics",
+  "reference_sheet": "reference_sheets/clerics_four_reference.png",
+  "cutout_type": "standing_full_body_only",
+  "remotion_rigged": false,
+  "characters": [
+    {
+      "id": "cleric-01",
+      "source_box": [
+        10,
+        5,
+        354,
+        765
+      ],
+      "file": "cleric-01/standing.png",
+      "alpha": "RGBA"
+    },
+    {
+      "id": "cleric-02",
+      "source_box": [
+        351,
+        5,
+        695,
+        765
+      ],
+      "file": "cleric-02/standing.png",
+      "alpha": "RGBA"
+    },
+    {
+      "id": "cleric-03",
+      "source_box": [
+        695,
+        5,
+        1040,
+        765
+      ],
+      "file": "cleric-03/standing.png",
+      "alpha": "RGBA"
+    },
+    {
+      "id": "cleric-04",
+      "source_box": [
+        1040,
+        5,
+        1372,
+        765
+      ],
+      "file": "cleric-04/standing.png",
+      "alpha": "RGBA"
+    }
+  ]
+}

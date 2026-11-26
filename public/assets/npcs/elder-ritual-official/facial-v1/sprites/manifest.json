@@ -1,0 +1,224 @@
+{
+  "id": "elder-ritual-official",
+  "source": "user-provided original elder sprite sheet",
+  "format": "RGBA PNG 512x512 cells",
+  "atlas": "elder_facial_atlas_4x4_rgba.png",
+  "layout": [
+    4,
+    4
+  ],
+  "facial_architecture": "fixed-base face (including hair/beard) + eyes / eyebrows / mouth sprites",
+  "quality": "draft; requires visual calibration in Remotion",
+  "notes": [
+    "The elder base art includes the stable silver hair and beard; do not layer rear-view hair as if front hair.",
+    "Back and front hair source cells are reference-only because the source sheet did not provide clean aligned independently drawn hair.",
+    "No whole-head replacement for expressions; swap only eyes, eyebrows, mouth.",
+    "Mouth sprites may need beard occlusion correction, and some feature strokes may need manual touch-up.",
+    "Source artwork was on an off-white background; sprite alpha was extracted programmatically.",
+    "Source row heights are unequal; sprites were extracted using actual row regions."
+  ],
+  "sprites": [
+    {
+      "name": "back_hair_reference",
+      "row": 0,
+      "column": 0,
+      "file": "back_hair_reference.png",
+      "size": [
+        512,
+        512
+      ],
+      "usable_at_runtime": false,
+      "anchor_notes": "feature aligned to shared 512 canvas"
+    },
+    {
+      "name": "base_head_neck",
+      "row": 0,
+      "column": 1,
+      "file": "base_head_neck.png",
+      "size": [
+        512,
+        512
+      ],
+      "usable_at_runtime": false,
+      "anchor_notes": "Original base retained as reference; contains baked mouth strokes. Use base_head_neck_clean."
+    },
+    {
+      "name": "front_hair_reference",
+      "row": 0,
+      "column": 2,
+      "file": "front_hair_reference.png",
+      "size": [
+        512,
+        512
+      ],
+      "usable_at_runtime": false,
+      "anchor_notes": "feature aligned to shared 512 canvas"
+    },
+    {
+      "name": "assembled_preview",
+      "row": 0,
+      "column": 3,
+      "file": "assembled_preview.png",
+      "size": [
+        512,
+        512
+      ],
+      "usable_at_runtime": false,
+      "anchor_notes": "feature aligned to shared 512 canvas"
+    },
+    {
+      "name": "eyes_neutral",
+      "row": 1,
+      "column": 0,
+      "file": "eyes_neutral.png",
+      "size": [
+        512,
+        512
+      ],
+      "usable_at_runtime": true,
+      "anchor_notes": "feature aligned to shared 512 canvas"
+    },
+    {
+      "name": "eyes_half_closed",
+      "row": 1,
+      "column": 1,
+      "file": "eyes_half_closed.png",
+      "size": [
+        512,
+        512
+      ],
+      "usable_at_runtime": true,
+      "anchor_notes": "feature aligned to shared 512 canvas"
+    },
+    {
+      "name": "eyes_closed",
+      "row": 1,
+      "column": 2,
+      "file": "eyes_closed.png",
+      "size": [
+        512,
+        512
+      ],
+      "usable_at_runtime": true,
+      "anchor_notes": "feature aligned to shared 512 canvas"
+    },
+    {
+      "name": "eyes_stern",
+      "row": 1,
+      "column": 3,
+      "file": "eyes_stern.png",
+      "size": [
+        512,
+        512
+      ],
+      "usable_at_runtime": true,
+      "anchor_notes": "feature aligned to shared 512 canvas"
+    },
+    {
+      "name": "brows_neutral",
+      "row": 2,
+      "column": 0,
+      "file": "brows_neutral.png",
+      "size": [
+        512,
+        512
+      ],
+      "usable_at_runtime": true,
+      "anchor_notes": "feature aligned to shared 512 canvas"
+    },
+    {
+      "name": "brows_raised",
+      "row": 2,
+      "column": 1,
+      "file": "brows_raised.png",
+      "size": [
+        512,
+        512
+      ],
+      "usable_at_runtime": true,
+      "anchor_notes": "feature aligned to shared 512 canvas"
+    },
+    {
+      "name": "brows_worried",
+      "row": 2,
+      "column": 2,
+      "file": "brows_worried.png",
+      "size": [
+        512,
+        512
+      ],
+      "usable_at_runtime": true,
+      "anchor_notes": "feature aligned to shared 512 canvas"
+    },
+    {
+      "name": "brows_stern",
+      "row": 2,
+      "column": 3,
+      "file": "brows_stern.png",
+      "size": [
+        512,
+        512
+      ],
+      "usable_at_runtime": true,
+      "anchor_notes": "feature aligned to shared 512 canvas"
+    },
+    {
+      "name": "mouth_neutral",
+      "row": 3,
+      "column": 0,
+      "file": "mouth_neutral.png",
+      "size": [
+        512,
+        512
+      ],
+      "usable_at_runtime": true,
+      "anchor_notes": "feature aligned to shared 512 canvas"
+    },
+    {
+      "name": "mouth_open_small",
+      "row": 3,
+      "column": 1,
+      "file": "mouth_open_small.png",
+      "size": [
+        512,
+        512
+      ],
+      "usable_at_runtime": true,
+      "anchor_notes": "feature aligned to shared 512 canvas"
+    },
+    {
+      "name": "mouth_open_wide",
+      "row": 3,
+      "column": 2,
+      "file": "mouth_open_wide.png",
+      "size": [
+        512,
+        512
+      ],
+      "usable_at_runtime": true,
+      "anchor_notes": "feature aligned to shared 512 canvas"
+    },
+    {
+      "name": "mouth_o",
+      "row": 3,
+      "column": 3,
+      "file": "mouth_o.png",
+      "size": [
+        512,
+        512
+      ],
+      "usable_at_runtime": true,
+      "anchor_notes": "feature aligned to shared 512 canvas"
+    },
+    {
+      "name": "base_head_neck_clean",
+      "file": "base_head_neck_clean.png",
+      "size": [
+        512,
+        512
+      ],
+      "usable_at_runtime": true,
+      "anchor_notes": "Fixed original base with only localized mouth strokes removed; original alpha and pixels outside x221..286/y297..314 are unchanged."
+    }
+  ]
+}

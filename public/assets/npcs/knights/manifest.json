@@ -1,0 +1,52 @@
+{
+  "category": "knights",
+  "reference_sheet": "reference_sheets/knights_four_reference.png",
+  "cutout_type": "standing_full_body_only",
+  "remotion_rigged": false,
+  "characters": [
+    {
+      "id": "knight-01",
+      "source_box": [
+        16,
+        5,
+        345,
+        767
+      ],
+      "file": "knight-01/standing.png",
+      "alpha": "RGBA"
+    },
+    {
+      "id": "knight-02",
+      "source_box": [
+        365,
+        5,
+        690,
+        767
+      ],
+      "file": "knight-02/standing.png",
+      "alpha": "RGBA"
+    },
+    {
+      "id": "knight-03",
+      "source_box": [
+        688,
+        5,
+        1060,
+        767
+      ],
+      "file": "knight-03/standing.png",
+      "alpha": "RGBA"
+    },
+    {
+      "id": "knight-04",
+      "source_box": [
+        1070,
+        5,
+        1372,
+        767
+      ],
+      "file": "knight-04/standing.png",
+      "alpha": "RGBA"
+    }
+  ]
+}
